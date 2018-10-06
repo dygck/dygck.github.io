@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="zh" /><updated>2018-10-06T20:41:53+08:00</updated><id>/</id><title type="html">在风陵渡口学coding!</title><subtitle>学习至上!
+</subtitle><author><name>Jeff</name><email>fj1945@live.cn</email></author><entry><title type="html">自动更新python模块脚本</title><link href="/auto-update-python-module" rel="alternate" type="text/html" title="自动更新python模块脚本" /><published>2018-10-06T03:22:10+08:00</published><updated>2018-10-06T03:22:10+08:00</updated><id>/auto-update-python-module</id><content type="html" xml:base="/auto-update-python-module">&lt;p&gt;首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.&lt;/p&gt;
+
+&lt;h2 id=&quot;源码&quot;&gt;源码&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;line &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;pip list &lt;span class=&quot;nt&quot;&gt;--outdated&lt;/span&gt;|cut &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; 1|sed 1,2d&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;do
+ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;pip install &lt;span class=&quot;nt&quot;&gt;--upgrade&lt;/span&gt;  &lt;span class=&quot;nv&quot;&gt;$line&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;done&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新. 源码 #!/bin/bash for line in `pip list --outdated|cut -d &quot; &quot; -f 1|sed 1,2d` do sudo pip install --upgrade $line done</summary></entry><entry><title type="html">jekyll 命令练习</title><link href="/jekyll-exercise" rel="alternate" type="text/html" title="jekyll 命令练习" /><published>2018-10-03T00:00:00+08:00</published><updated>2018-10-03T00:00:00+08:00</updated><id>/jekyll-exercise</id><content type="html" xml:base="/jekyll-exercise">&lt;h2 id=&quot;jekyll-命令行参数&quot;&gt;jekyll 命令行参数&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll new  &lt;/code&gt; 创建文件基本框架&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll bulid&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll b path&lt;/code&gt; 输出网页文件,默认输出到./_site文件下面&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekeyll serve&lt;/code&gt;或&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll s path&lt;/code&gt;在本地调试编写的网页。&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll doctor&lt;/code&gt;诊断问题&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekeyll new-theme themename&lt;/code&gt;创建一个新的主题框架&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll clean&lt;/code&gt;移除生成的网页和元数据&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll help&lt;/code&gt;jekyll 提供的帮助。如:jekyll help build.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;全局配置&quot;&gt;全局配置&lt;/h2&gt;
+
+&lt;p&gt;可以使用命令行和修改&lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;文件的方式设置。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;设置选项&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;配置文件方法&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;命令行方法&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;改变jekyll读取构建网站文件的地址&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source: dir&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-s&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;改变jekyll输出网站文件的目录&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;destination: dir&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-d&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;安全，禁用自定义插件并且忽略软链接&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;safe: bool&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--safe&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;将一些目录中的文件排除，不被jekyll扫描到&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;exlude: [dir,file]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;强制包括的文件，如&lt;code class=&quot;highlighter-rouge&quot;&gt;.htaccess&lt;/code&gt;（默认是排除以点开头的文件）&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;include: [dir,file, …]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;当破坏网站目录的时候强制保留的文件，对于不是由jekyll生成的文件很有用;例如由编译工具生成的文件或资源。&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;keep_files: [dir,file,…]&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;时区&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;timezone: Asia/Shanghai&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;自动重新生成&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-w&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;--[no-]watch&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;自定义配置文件路径&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;--config [file1,file2,…]&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;详细输出&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;-V,–verbose&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;增量编译，只编译新的文件。&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;incremental: Bool&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-I&lt;/code&gt; ,&lt;code class=&quot;highlighter-rouge&quot;&gt;--incremental&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;| serve 参数|配置文件方法 |命令行方法|&lt;br /&gt;
+|:———-:|:-:|:-:|&lt;/p&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">jekyll 命令行参数 jekyll new 创建文件基本框架 jekyll bulid或jekyll b path 输出网页文件,默认输出到./_site文件下面 jekeyll serve或jekyll s path在本地调试编写的网页。 jekyll doctor诊断问题 jekeyll new-theme themename创建一个新的主题框架 jekyll clean移除生成的网页和元数据 jekyll helpjekyll 提供的帮助。如:jekyll help build. 全局配置 可以使用命令行和修改_config.yml文件的方式设置。 设置选项 配置文件方法 命令行方法 改变jekyll读取构建网站文件的地址 source: dir -s 改变jekyll输出网站文件的目录 destination: dir -d 安全，禁用自定义插件并且忽略软链接 safe: bool --safe 将一些目录中的文件排除，不被jekyll扫描到 exlude: [dir,file] - 强制包括的文件，如.htaccess（默认是排除以点开头的文件） include: [dir,file, …] - 当破坏网站目录的时候强制保留的文件，对于不是由jekyll生成的文件很有用;例如由编译工具生成的文件或资源。 keep_files: [dir,file,…] - 时区 timezone: Asia/Shanghai - 自动重新生成 - -w,--[no-]watch 自定义配置文件路径 - --config [file1,file2,…] 详细输出 - -V,–verbose 增量编译，只编译新的文件。 incremental: Bool -I ,--incremental | serve 参数|配置文件方法 |命令行方法| |:———-:|:-:|:-:|</summary></entry><entry><title type="html">sublime_text 配置技巧</title><link href="/sublime-settings-notes" rel="alternate" type="text/html" title="sublime_text 配置技巧" /><published>2018-10-02T05:30:05+08:00</published><updated>2018-10-02T05:30:05+08:00</updated><id>/sublime-settings-notes</id><content type="html" xml:base="/sublime-settings-notes">&lt;p&gt;这里记录一些有关sublimetxt使用的一些技巧，做个备忘。&lt;/p&gt;
+
+&lt;h2 id=&quot;sublimetext的程序菜单选项分别由一下文件组成&quot;&gt;sublimetext的程序菜单选项分别由一下文件组成。&lt;/h2&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+ Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。)
++ Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名)
++ Context.sublime-menu (文本编辑窗口右键菜单)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;修改首选项插件设置行为使打开设置为默认和用户分屏效果&quot;&gt;修改首选项插件设置行为，使打开设置为默认和用户分屏效果.&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;json格式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;command&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;edit_settings&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;args&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;根据插件的名字来修改下面&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;base_file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;${packages}/SideBarEnhancements/Side Bar.sublime-settings&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;${packages}/User/Side Bar.sublime-settings&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;caption&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Settings&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;设置的xml代码片段&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- ${packages}需要转义！ --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;snippet&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;content&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
+{
+    &quot;command&quot;: &quot;edit_settings&quot;,
+    &quot;caption&quot;: &quot;设置&quot;,
+    &quot;args&quot;:
+    {
+        &quot;base_file&quot;: &quot;\$\{packages\}/${1:package_name}/${1:package_name}.sublime-settings&quot;,
+        &quot;default&quot;: &quot;// Settings in here override those in \&quot;${1:package_name}/${1:package_name}.sublime-settings\&quot;,\n// and are overridden in turn by syntax-specific settings.\n{\n\t$0\n}\n&quot;
+    },
+},
+]]&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/content&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tabTrigger&amp;gt;&lt;/span&gt;st&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tabTrigger&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;source.json&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/snippet&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;快捷键设置代码片段&quot;&gt;快捷键设置代码片段&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;NOTE&lt;/em&gt;: 快捷键的设置是大小写敏感的,都是小写键来设置快捷键!&lt;/p&gt;
+
+&lt;div class=&quot;language-xml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;snippet&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;content&amp;gt;&lt;/span&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;![CDATA[
+{
+    &quot;keys&quot;:[&quot;${1:}&quot;],
+    &quot;command&quot;: &quot;${2:}&quot;,
+    ${3:&quot;args&quot;:
+    {
+        $4
+    }
+    }
+}]]&amp;gt;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/content&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;tabTrigger&amp;gt;&lt;/span&gt;kb&lt;span class=&quot;nt&quot;&gt;&amp;lt;/tabTrigger&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;scope&amp;gt;&lt;/span&gt;source.json&lt;span class=&quot;nt&quot;&gt;&amp;lt;/scope&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;description&amp;gt;&lt;/span&gt;按键绑定片段&lt;span class=&quot;nt&quot;&gt;&amp;lt;/description&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/snippet&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/sublime_keybind.gif&quot; alt=&quot;snippet paly&quot; /&gt;&lt;/p&gt;
+
+&lt;p class=&quot;recent_update&quot; style=&quot;text-align: right;color: #108080;font-style: italic;font-size: large;&quot;&gt;最后更新:2018-10-02 20:55:08&lt;/p&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。 sublimetext的程序菜单选项分别由一下文件组成。 + Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。) + Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名) + Context.sublime-menu (文本编辑窗口右键菜单) 修改首选项插件设置行为，使打开设置为默认和用户分屏效果. json格式 { &quot;command&quot;: &quot;edit_settings&quot;, &quot;args&quot;: { // 根据插件的名字来修改下面2个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。 &quot;base_file&quot;: &quot;${packages}/SideBarEnhancements/Side Bar.sublime-settings&quot;, &quot;default&quot;: &quot;${packages}/User/Side Bar.sublime-settings&quot; }, &quot;caption&quot;: &quot;Settings&quot; }, 设置的xml代码片段 &amp;lt;!-- ${packages}需要转义！ --&amp;gt; &amp;lt;snippet&amp;gt; &amp;lt;content&amp;gt;&amp;lt;![CDATA[ { &quot;command&quot;: &quot;edit_settings&quot;, &quot;caption&quot;: &quot;设置&quot;, &quot;args&quot;: { &quot;base_file&quot;: &quot;\$\{packages\}/${1:package_name}/${1:package_name}.sublime-settings&quot;, &quot;default&quot;: &quot;// Settings in here override those in \&quot;${1:package_name}/${1:package_name}.sublime-settings\&quot;,\n// and are overridden in turn by syntax-specific settings.\n{\n\t$0\n}\n&quot; }, }, ]]&amp;gt;&amp;lt;/content&amp;gt; &amp;lt;tabTrigger&amp;gt;st&amp;lt;/tabTrigger&amp;gt; &amp;lt;scope&amp;gt;source.json&amp;lt;/scope&amp;gt; &amp;lt;/snippet&amp;gt; 快捷键设置代码片段 NOTE: 快捷键的设置是大小写敏感的,都是小写键来设置快捷键! &amp;lt;snippet&amp;gt; &amp;lt;content&amp;gt;&amp;lt;![CDATA[ { &quot;keys&quot;:[&quot;${1:}&quot;], &quot;command&quot;: &quot;${2:}&quot;, ${3:&quot;args&quot;: { $4 } } }]]&amp;gt;&amp;lt;/content&amp;gt; &amp;lt;tabTrigger&amp;gt;kb&amp;lt;/tabTrigger&amp;gt; &amp;lt;scope&amp;gt;source.json&amp;lt;/scope&amp;gt; &amp;lt;description&amp;gt;按键绑定片段&amp;lt;/description&amp;gt; &amp;lt;/snippet&amp;gt; 最后更新:2018-10-02 20:55:08</summary></entry><entry><title type="html">Microsoft.PowerShell.Utility模块介绍</title><link href="/PowerShell-Object-commands" rel="alternate" type="text/html" title="Microsoft.PowerShell.Utility模块介绍" /><published>2018-09-29T07:56:28+08:00</published><updated>2018-09-29T07:56:28+08:00</updated><id>/PowerShell--Object-commands</id><content type="html" xml:base="/PowerShell-Object-commands">&lt;p&gt;这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的&lt;/p&gt;
+
+&lt;h2 id=&quot;measure-object&quot;&gt;Measure-Object&lt;/h2&gt;
+&lt;h3 id=&quot;description&quot;&gt;Description&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Measure-Object&lt;/code&gt; 可以用来计算一个对象的数值型属性的值，主要有 &lt;code class=&quot;highlighter-rouge&quot;&gt;count&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;max&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;min&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;sum&lt;/code&gt;
+&lt;code class=&quot;highlighter-rouge&quot;&gt;mean&lt;/code&gt;.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)&lt;/p&gt;
+&lt;h3 id=&quot;alias&quot;&gt;Alias&lt;/h3&gt;
+&lt;p&gt;measure&lt;/p&gt;
+&lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;统计某个文件的行数、字符数、文件数。
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 查看win10系统hosts文件夹的行号，单词数，字符数。&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$hosts&lt;/span&gt; ; &lt;span class=&quot;nb&quot;&gt;Get-Content&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hosts&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Get-Content&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$hosts&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Measure-Object&lt;/span&gt; -Line -Word -Character
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;/assets/images/ps_measure02.jpg&quot; alt=&quot;hosts&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;计算对象数值型属性的常用统计量。
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# 获得了windows中以vm开头的进程的cpu占有率这个数值型属性的最大值、最小值、平均值和数量特征。&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 使用tee对象将get-process输出结果保存到a.txt，同时传递给管道，作为measure-object输入，&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 并计算数值型属性 cpu占有率的常用统计量。最后打印出a.txt结果，与measure计算结果进行比较来验证命令的准确性。&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Get-Process &lt;/span&gt;vm&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; |tee a.txt | &lt;span class=&quot;nb&quot;&gt;Measure-Object&lt;/span&gt; -Property  CPU -Average -Maximum -Minimum;Get-Content .\a.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;/assets/images/ps_measure01.jpg&quot; alt=&quot;get-process&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;compare-object&quot;&gt;Compare-Object&lt;/h2&gt;
+&lt;h3 id=&quot;description-1&quot;&gt;Description&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;比较2个对象的属性的区别,对于文件内容,根据每行的内容比较.默认输入2个对象分别是 &lt;code class=&quot;highlighter-rouge&quot;&gt;reference&lt;/code&gt;
+和 &lt;code class=&quot;highlighter-rouge&quot;&gt;difference&lt;/code&gt;.当对象的某个内容只有 &lt;code class=&quot;highlighter-rouge&quot;&gt;reference&lt;/code&gt; 有,则会输出这样的符号 &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;lt;=&lt;/code&gt; 表示只有该对象才有的内容,
+反之,当对象的某个内容或者属性只有 &lt;code class=&quot;highlighter-rouge&quot;&gt;difference&lt;/code&gt; 有,则会标记这样的符号 &lt;code class=&quot;highlighter-rouge&quot;&gt;=&amp;gt;&lt;/code&gt;.当2个对象的某个属性都相同则使用这个 &lt;code class=&quot;highlighter-rouge&quot;&gt;==&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;默认情况下,当2个对象完全相同的情况下没有返回值.当其他一个对象为空的时候,报错.并且仅输出2个对象之间不同的地方.&lt;/li&gt;
+  &lt;li&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;-IncludeEqual&lt;/code&gt; 参数可以输出2个对象属性相同的地方.使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;-ExcludeDifferent&lt;/code&gt;参数只显示对象相同的属性.&lt;/li&gt;
+  &lt;li&gt;使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;-CaseSensitive&lt;/code&gt; 来确定比较是否大小写敏感,使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;-Culture&lt;/code&gt; 参数来指定区域型比较(不懂).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;alias-1&quot;&gt;Alias&lt;/h3&gt;
+&lt;p&gt;compare、diff&lt;/p&gt;
+
+&lt;h3 id=&quot;examples-1&quot;&gt;Examples&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;使用默认方法,比较2个文本的内容.
+    &lt;ol&gt;
+      &lt;li&gt;文本名分别为 reference、difference,内容如下：
+        &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c&quot;&gt;#文件a reference&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+ &lt;span class=&quot;c&quot;&gt;# 文件b difference&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;aa&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+      &lt;/li&gt;
+      &lt;li&gt;比较结果.
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; ./reference;&lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat&lt;/span&gt; ./difference
+ &lt;span class=&quot;nb&quot;&gt;Compare-Object&lt;/span&gt; -ReferenceObject &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; -DifferenceObject &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;&lt;img src=&quot;/assets/images/ps_compare01.png&quot; alt=&quot;compare-object&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;输出相等行比较的结果.添加参数 &lt;code class=&quot;highlighter-rouge&quot;&gt;-InclueEqual&lt;/code&gt;
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;Compare-Object&lt;/span&gt; -ReferenceObject &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; -DifferenceObject &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; -IncludeEqual
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;/assets/images/ps_compare02.png&quot; alt=&quot;inclued-equal&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;比较对象的属性.仍然使用之前的文件作为例子.当然比较其他对象也适用.
+    &lt;ol&gt;
+      &lt;li&gt;获取对象的属性
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt;|Get-Member -MemberType Property ,NoteProperty &lt;span class=&quot;c1&quot;&gt;# 输出只有length属性&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;&lt;img src=&quot;/assets/images/ps_compare03.png&quot; alt=&quot;get-property&quot; title=&quot;get-property&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;比较length属性
+        &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nb&quot;&gt;Compare-Object&lt;/span&gt; -ReferenceObject &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; -DifferenceObject &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt; -Property length -IncludeEqual
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;        &lt;/div&gt;
+        &lt;p&gt;可以看到有两行长度相等都为1,即一个字符,另外有一行&lt;code class=&quot;highlighter-rouge&quot;&gt;DifferenceObject&lt;/code&gt;是长度为2,’ReferenceObject’是长度为1.
+ &lt;img src=&quot;/assets/images/ps_compare04.png&quot; alt=&quot;compare-property&quot; title=&quot;get-property&quot; /&gt;&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;扩展函数&lt;code class=&quot;highlighter-rouge&quot;&gt;Compare-ObjectProperties&lt;/code&gt;比较2个对象的所有属性,在这里找到的! &lt;a href=&quot;https://blogs.technet.microsoft.com/janesays/2017/04/25/compare-all-properties-of-two-objects-in-windows-powershell/&quot;&gt;源码地址&lt;/a&gt;,仍然使用2个文件作为实例.
+    &lt;div class=&quot;language-powershell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;c1&quot;&gt;# 原函数部分,可以用来比较2个对象所有属性的不同.&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;Function &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Compare&lt;/span&gt;-ObjectProperties &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;Param&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;PSObject]&lt;span class=&quot;nv&quot;&gt;$ReferenceObject&lt;/span&gt;,
+     &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;PSObject]&lt;span class=&quot;nv&quot;&gt;$DifferenceObject&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;nv&quot;&gt;$objprops&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Get-Member&lt;/span&gt; -InputObject &lt;span class=&quot;nv&quot;&gt;$ReferenceObject&lt;/span&gt;  -MemberType Property, NoteProperty| &lt;span class=&quot;k&quot;&gt;ForEach&lt;/span&gt;-Object Name
+ &lt;span class=&quot;nv&quot;&gt;$objprops&lt;/span&gt; +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;Get-Member&lt;/span&gt;  -InputObject &lt;span class=&quot;nv&quot;&gt;$DifferenceObject&lt;/span&gt;  -MemberType Property, NoteProperty | &lt;span class=&quot;k&quot;&gt;ForEach&lt;/span&gt;-Object Name
+ &lt;span class=&quot;nv&quot;&gt;$objprops&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$objprops&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Sort-Object&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Select-Object&lt;/span&gt; -Unique
+ &lt;span class=&quot;nv&quot;&gt;$diffs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; @&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$objprop&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$objprops&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;nv&quot;&gt;$diff&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Compare-Object&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ReferenceObject&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$DifferenceObject&lt;/span&gt; -Property &lt;span class=&quot;nv&quot;&gt;$objprop&lt;/span&gt;
+     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$diff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+         &lt;span class=&quot;nv&quot;&gt;$diffprops&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; @&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+             PropertyName &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$objprop&lt;/span&gt;
+             RefValue     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$diff&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Where&lt;/span&gt;-Object &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;.SideIndicator -eq &lt;span class=&quot;s1&quot;&gt;'&amp;lt;='&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; | &lt;span class=&quot;k&quot;&gt;ForEach&lt;/span&gt;-Object &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$objprop&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+             DiffValue    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$diff&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Where&lt;/span&gt;-Object &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_&lt;/span&gt;.SideIndicator -eq &lt;span class=&quot;s1&quot;&gt;'=&amp;gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; | &lt;span class=&quot;k&quot;&gt;ForEach&lt;/span&gt;-Object &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$objprop&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+         &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+         &lt;span class=&quot;nv&quot;&gt;$diffs&lt;/span&gt; +&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;New-Object &lt;/span&gt;PSObject -Property &lt;span class=&quot;nv&quot;&gt;$diffprops&lt;/span&gt;
+     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+ &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$diffs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$diffs&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;Select-Object &lt;/span&gt;PropertyName, RefValue, DiffValue&lt;span class=&quot;o&quot;&gt;)}&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# 实测部分,仍然比较2个文件.&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;Compare&lt;/span&gt;-ObjectProperties -ReferenceObject &lt;span class=&quot;nv&quot;&gt;$a&lt;/span&gt; -DifferenceObject &lt;span class=&quot;nv&quot;&gt;$b&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;img src=&quot;/assets/images/ps_compare05.png&quot; alt=&quot;比较所有属性&quot; /&gt;
+可以看出不需要指定属性就能找到有什么属性是不同的,但是这里没有提供输出属性值相同的部分.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p class=&quot;recent_update&quot; style=&quot;text-align: right;color: #108080;font-style: italic;font-size: large;&quot;&gt;最后更新:2018-9-30 21:42:00&lt;/p&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的 Measure-Object Description Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters) Alias measure Examples 统计某个文件的行数、字符数、文件数。 # 查看win10系统hosts文件夹的行号，单词数，字符数。 $hosts ; Get-Content $hosts Get-Content $hosts | Measure-Object -Line -Word -Character 计算对象数值型属性的常用统计量。 # 获得了windows中以vm开头的进程的cpu占有率这个数值型属性的最大值、最小值、平均值和数量特征。 # 使用tee对象将get-process输出结果保存到a.txt，同时传递给管道，作为measure-object输入， # 并计算数值型属性 cpu占有率的常用统计量。最后打印出a.txt结果，与measure计算结果进行比较来验证命令的准确性。 Get-Process vm* |tee a.txt | Measure-Object -Property CPU -Average -Maximum -Minimum;Get-Content .\a.txt Compare-Object Description 比较2个对象的属性的区别,对于文件内容,根据每行的内容比较.默认输入2个对象分别是 reference 和 difference.当对象的某个内容只有 reference 有,则会输出这样的符号 &amp;lt;= 表示只有该对象才有的内容, 反之,当对象的某个内容或者属性只有 difference 有,则会标记这样的符号 =&amp;gt;.当2个对象的某个属性都相同则使用这个 ==. 默认情况下,当2个对象完全相同的情况下没有返回值.当其他一个对象为空的时候,报错.并且仅输出2个对象之间不同的地方. 使用 -IncludeEqual 参数可以输出2个对象属性相同的地方.使用 -ExcludeDifferent参数只显示对象相同的属性. 使用 -CaseSensitive 来确定比较是否大小写敏感,使用 -Culture 参数来指定区域型比较(不懂). Alias compare、diff Examples 使用默认方法,比较2个文本的内容. 文本名分别为 reference、difference,内容如下： #文件a reference a b c # 文件b difference aa b c 比较结果. $a=cat ./reference;$b=cat ./difference Compare-Object -ReferenceObject $a -DifferenceObject $b 输出相等行比较的结果.添加参数 -InclueEqual Compare-Object -ReferenceObject $a -DifferenceObject $b -IncludeEqual 比较对象的属性.仍然使用之前的文件作为例子.当然比较其他对象也适用. 获取对象的属性 $a|Get-Member -MemberType Property ,NoteProperty # 输出只有length属性 比较length属性 Compare-Object -ReferenceObject $a -DifferenceObject $b -Property length -IncludeEqual 可以看到有两行长度相等都为1,即一个字符,另外有一行DifferenceObject是长度为2,’ReferenceObject’是长度为1. 扩展函数Compare-ObjectProperties比较2个对象的所有属性,在这里找到的! 源码地址,仍然使用2个文件作为实例. # 原函数部分,可以用来比较2个对象所有属性的不同. Function Compare-ObjectProperties { Param( [PSObject]$ReferenceObject, [PSObject]$DifferenceObject ) $objprops = Get-Member -InputObject $ReferenceObject -MemberType Property, NoteProperty| ForEach-Object Name $objprops +=Get-Member -InputObject $DifferenceObject -MemberType Property, NoteProperty | ForEach-Object Name $objprops = $objprops | Sort-Object | Select-Object -Unique $diffs = @() foreach ($objprop in $objprops) { $diff = Compare-Object $ReferenceObject $DifferenceObject -Property $objprop if ($diff) { $diffprops = @{ PropertyName = $objprop RefValue = ($diff | Where-Object {$_.SideIndicator -eq '&amp;lt;='} | ForEach-Object $($objprop)) DiffValue = ($diff | Where-Object {$_.SideIndicator -eq '=&amp;gt;'} | ForEach-Object $($objprop)) } $diffs += New-Object PSObject -Property $diffprops } } if ($diffs) {return ($diffs | Select-Object PropertyName, RefValue, DiffValue)} } # 实测部分,仍然比较2个文件. Compare-ObjectProperties -ReferenceObject $a -DifferenceObject $b 可以看出不需要指定属性就能找到有什么属性是不同的,但是这里没有提供输出属性值相同的部分. 最后更新:2018-9-30 21:42:00</summary></entry><entry><title type="html">平均数</title><link href="/mean" rel="alternate" type="text/html" title="平均数" /><published>2018-09-27T07:45:10+08:00</published><updated>2018-09-27T07:45:10+08:00</updated><id>/mean</id><content type="html" xml:base="/mean">&lt;p&gt;关于各种平均数的描述!&lt;/p&gt;
+
+&lt;h2 id=&quot;简单平均数mean&quot;&gt;简单平均数(mean)&lt;/h2&gt;
+&lt;p&gt;求和除个数&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;公式&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{x}=\frac{1}{n}\sum\limits_{i=1}^n x_i&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;例子&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;省略&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Matlab&quot;&gt;mean()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&quot;截尾平均数trimmed-mean&quot;&gt;截尾平均数(trimmed mean)&lt;/h2&gt;
+&lt;p&gt;将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。&lt;/p&gt;
+
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;trimmean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;precent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;flag&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。
+有&lt;code class=&quot;highlighter-rouge&quot;&gt;round&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;floor&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;weighted&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;几何平均数geometric-mean&quot;&gt;几何平均数(geometric mean)&lt;/h2&gt;
+&lt;p&gt;通常是增长率之内的求平均数的方法&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;公式&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{G}=\sqrt[n]{\prod\limits_{i=1}^{n}} x_i=\sqrt[n]{x_1 \cdot x_2 \cdots x_n }&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;例子&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算:
+	&lt;script type=&quot;math/tex&quot;&gt;\bar{G}=\sqrt[4]{(1+10\%)(1+20\%)(1+15\%)(1+25\%)}-1=17.37\%&lt;/script&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;函数&lt;/p&gt;
+
+    &lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;n&quot;&gt;geomean&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;调和平均数harmonic-mean&quot;&gt;调和平均数(harmonic mean)&lt;/h2&gt;
+&lt;p&gt;调和平均数某种程度上是处理分子相同，分母不同的平均数问题。
+如平均速度问题(求速度问题，转化为了路程与时间的分数)。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;公式&lt;/p&gt;
+
+    &lt;script type=&quot;math/tex; mode=display&quot;&gt;\bar{H}=\frac{n}{\sum\limits_{i=1}^n \frac{1}{x_i}}=\frac{n}{\frac{1}{x_1}+\frac{2}{x_1}+\dots+\frac{n}{x_i}}&lt;/script&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;例子&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;假设一辆车,行驶了一段距离速度为50km/h，按原路返回速度为60km/h，求平均速度：
+&lt;script type=&quot;math/tex&quot;&gt;\bar{H}=\frac{2}{\frac{1}{50}+\frac{1}{60}}=54.54km/h&lt;/script&gt;
+可以看出来平均速度受低的值影响较大，调和平均数受低值影响大。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;函数&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Matlab&quot;&gt;harmmean()
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">关于各种平均数的描述! 简单平均数(mean) 求和除个数 公式 例子 省略 函数 mean() 截尾平均数(trimmed mean) 将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。 trimmean(data,precent,flag) flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。 有round,floor,weighted. 几何平均数(geometric mean) 通常是增长率之内的求平均数的方法 公式 例子 假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算: 函数 geomean() 调和平均数(harmonic mean) 调和平均数某种程度上是处理分子相同，分母不同的平均数问题。 如平均速度问题(求速度问题，转化为了路程与时间的分数)。 公式 例子 假设一辆车,行驶了一段距离速度为50km/h，按原路返回速度为60km/h，求平均速度： 可以看出来平均速度受低的值影响较大，调和平均数受低值影响大。 函数 harmmean()</summary></entry><entry><title type="html">操作符</title><link href="/operators" rel="alternate" type="text/html" title="操作符" /><published>2018-09-23T00:00:00+08:00</published><updated>2018-09-23T00:00:00+08:00</updated><id>/operators</id><content type="html" xml:base="/operators">&lt;p&gt;Linux shell中的常见的操作符.&lt;/p&gt;
+
+&lt;h2 id=&quot;分号&quot;&gt;分号&lt;/h2&gt;
+&lt;p&gt;分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句.&lt;/p&gt;
+
+&lt;h2 id=&quot;短路与&quot;&gt;短路与&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;event A &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; event B
+&lt;span class=&quot;c&quot;&gt;#只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#只有A成功了,B才可以运行.A不成功就停止运行.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;短路或&quot;&gt;短路或&lt;/h2&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;envent A　|| envent B
+&lt;span class=&quot;c&quot;&gt;#事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#B应该属于一个备选方案.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;命令替换符&quot;&gt;命令替换符&lt;/h2&gt;
+&lt;p&gt;将一条命令的输出,作为参数或者选项插入另一条命令&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;pfd&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;管道操作符&quot;&gt;管道操作符&lt;/h2&gt;
+&lt;p&gt;将管道左边命令的标准输出流(stdout)重定向(redirection)到管道右边的命令,
+作为右边命令的标准输入流(stdin).&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; |less
+&lt;span class=&quot;c&quot;&gt;# ls列出当前目录下的文件夹和文件,less将输入流以一页一页方式显示,&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# less将ls的输出作为输入,进行了一番操作。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;重定向符重写&quot;&gt;重定向符+重写&lt;/h2&gt;
+&lt;p&gt;通常是将一个命令重定向到文件,这个&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;符号形象的将左边的stdout内容指向右边的容器,
+这里应该是文件.如果这个文件已经存在,将会覆盖原文件的内容.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;man &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;type.txt &lt;span class=&quot;c&quot;&gt;# man命令的内容保存到文件type.txt中&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; noclobber &lt;span class=&quot;c&quot;&gt;# 意思是使用&quot;&amp;gt;&quot;这个符号,不允许覆盖已存在的文件,只能使用&quot;&amp;gt;|&quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt; +o noclobber &lt;span class=&quot;c&quot;&gt;# 关闭不允许覆盖功能,可以覆盖.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;重定向符追加&quot;&gt;重定向符+追加&lt;/h2&gt;
+&lt;p&gt;与&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;这个的区别就是将内容追加到文件中,而非覆盖.&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&amp;gt;&lt;/code&gt;的功能完全可以完成&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt;的功能&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ls.txt
+如果&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ls.txt&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;文件存在,则将&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;命令的输出结果添加到&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ls.txt&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;文本中&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+如果不存在,则功能与&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;这个一样,创建&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;ls.txt&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;文件,并传输内容.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tee&quot;&gt;tee&lt;/h2&gt;
+&lt;p&gt;tee操作可以把标准输出重定向到文件的同时,也可以传输到标准输入.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; ~|tee list.txt|less
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; ~|tee list.txt|less
+&lt;span class=&quot;c&quot;&gt;#页面查看,同时得到文件list.txt&lt;/span&gt;
+Applications
+Desktop
+Documents
+Downloads
+Library
+Movies
+Music
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">Linux shell中的常见的操作符. 分号 分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句. 短路与 event A &amp;amp;&amp;amp; event B #只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序. #只有A成功了,B才可以运行.A不成功就停止运行. 短路或 envent A　|| envent B #事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。 #B应该属于一个备选方案. 命令替换符 将一条命令的输出,作为参数或者选项插入另一条命令 cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令. 管道操作符 将管道左边命令的标准输出流(stdout)重定向(redirection)到管道右边的命令, 作为右边命令的标准输入流(stdin). ls |less # ls列出当前目录下的文件夹和文件,less将输入流以一页一页方式显示, # less将ls的输出作为输入,进行了一番操作。 重定向符+重写 通常是将一个命令重定向到文件,这个&amp;gt;符号形象的将左边的stdout内容指向右边的容器, 这里应该是文件.如果这个文件已经存在,将会覆盖原文件的内容. man type&amp;gt;type.txt # man命令的内容保存到文件type.txt中 set -o noclobber # 意思是使用&quot;&amp;gt;&quot;这个符号,不允许覆盖已存在的文件,只能使用&quot;&amp;gt;|&quot; set +o noclobber # 关闭不允许覆盖功能,可以覆盖. 重定向符+追加 与&amp;gt;这个的区别就是将内容追加到文件中,而非覆盖.&amp;gt;&amp;gt;的功能完全可以完成&amp;gt;的功能 ls &amp;gt;&amp;gt; ls.txt 如果`ls.txt`文件存在,则将`ls`命令的输出结果添加到`ls.txt`文本中; 如果不存在,则功能与`&amp;gt;`这个一样,创建`ls.txt`文件,并传输内容. tee tee操作可以把标准输出重定向到文件的同时,也可以传输到标准输入. ls ~|tee list.txt|less $ ls ~|tee list.txt|less #页面查看,同时得到文件list.txt Applications Desktop Documents Downloads Library Movies Music</summary></entry><entry><title type="html">生成重复的随机数</title><link href="/same-random-number-generate" rel="alternate" type="text/html" title="生成重复的随机数" /><published>2018-09-23T00:00:00+08:00</published><updated>2018-09-23T00:00:00+08:00</updated><id>/same-random-number-generate</id><content type="html" xml:base="/same-random-number-generate">&lt;p&gt;使用python和matlab生成重复的随机数,关键在于种子生成器.&lt;/p&gt;
+
+&lt;h2 id=&quot;使用rng函数&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;rng&lt;/code&gt;函数&lt;/h2&gt;
+
+&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+
+	&lt;span class=&quot;mf&quot;&gt;0.4170&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+
+	&lt;span class=&quot;mf&quot;&gt;0.7203&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
+
+	&lt;span class=&quot;mf&quot;&gt;0.4170&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;% 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;% 同时要求设定了种子之后,只有接下来的一次有效&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;h2 id=&quot;使用randomstate函数&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;RandomState&lt;/code&gt;函数&lt;/h2&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.62434536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.61175641&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.52817175&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.07296862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;0.86540763&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.62434536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.61175641&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.52817175&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.07296862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;0.86540763&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.3015386968802827&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 可以看出来只能使用一次，第二次就不一样了&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.6243453636632417&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 再次生成一个新实例，依然保存着状态。&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">使用python和matlab生成重复的随机数,关键在于种子生成器. 使用rng函数 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 &amp;gt;&amp;gt; rand ans = 0.7203 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 % 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可. % 同时要求设定了种子之后,只有接下来的一次有效 使用RandomState函数 In [1]: import numpy as np In [2]: s1=np.random.RandomState(1) In [3]: s1.randn(5) Out[3]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) In [4]: s2=np.random.RandomState(1) In [5]: s2.randn(5) Out[5]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) # 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。 In [6]: s2.randn() Out[6]: -2.3015386968802827 # 可以看出来只能使用一次，第二次就不一样了 In [7]: s3=np.random.RandomState(1) In [8]: s3.randn() Out[8]: 1.6243453636632417 # 再次生成一个新实例，依然保存着状态。</summary></entry><entry><title type="html">链接</title><link href="/softlink-and-hardlink" rel="alternate" type="text/html" title="链接" /><published>2018-09-03T00:00:00+08:00</published><updated>2018-09-03T00:00:00+08:00</updated><id>/softlink-and-hardlink</id><content type="html" xml:base="/softlink-and-hardlink">&lt;p&gt;Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)&lt;/p&gt;
+
+&lt;h2 id=&quot;索引节点&quot;&gt;索引节点&lt;/h2&gt;
+&lt;p&gt;索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。&lt;/p&gt;
+&lt;h2 id=&quot;软链接&quot;&gt;软链接&lt;/h2&gt;
+&lt;p&gt;软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 原始文件 建立的链接地址 （应该是要使用绝对路径）
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。&lt;/p&gt;
+&lt;h2 id=&quot;硬链接&quot;&gt;硬链接&lt;/h2&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln 原始文件地址 建立的链接地址
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容，
+其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。
+好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址,
+硬链接就是原文件的别名.通过硬链接改变文件内容，因为改变的是指向同一个内存地址的内容，
+硬链接和原文件会同时都发生改变。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 数组是引用类型，b是a的别名，改变a的内容同时b也会发生变化，指向的是同一个内存地址中的数据。硬链接也是一个道理。&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#[2, 2, 3, 4]&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#[2, 2, 3, 4]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//[2, 2, 3, 4]&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//[2, 2, 3, 4]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><summary type="html">Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接) 索引节点 索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。 软链接 软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。 ln -s 原始文件 建立的链接地址 （应该是要使用绝对路径） 软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。 硬链接 ln 原始文件地址 建立的链接地址 硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容， 其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。 好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址, 硬链接就是原文件的别名.通过硬链接改变文件内容，因为改变的是指向同一个内存地址的内容， 硬链接和原文件会同时都发生改变。 # 数组是引用类型，b是a的别名，改变a的内容同时b也会发生变化，指向的是同一个内存地址中的数据。硬链接也是一个道理。 a=[1,2,3,4] b=a a[0]=2 print(a) print(b) #[2, 2, 3, 4] #[2, 2, 3, 4] var a=[1,2,3,4] var b=a a[0]=2 console.log(a) console.log(b) //[2, 2, 3, 4] //[2, 2, 3, 4]</summary></entry></feed>

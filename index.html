@@ -1,0 +1,973 @@
+<!DOCTYPE html><html lang="zh">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - 在风陵渡口学coding!</title>
+
+<meta name="description" content="学习至上!
+">
+<link rel="canonical" href="/"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<!-- begin favicon --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+
+<meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
+
+<meta name="theme-color" content="#ffffff">
+<!-- end favicon --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.decodeUrl = function(str) {
+    return str ? decodeURIComponent(str.replace(/\+/g, '%20')) : '';
+  };
+
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i, cb; loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cb = cbs[i]; cb();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.1',
+      sources: {
+        font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn1.lncld.net/static/js/3.4.1/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script></head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+
+      <div class="page__main-inner">
+        <div></div><div class="page__header"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="24px" height="24px" viewBox="0 0 24 24">
+<style type="text/css">
+	.st0{fill:#515151;}
+</style>
+<path class="st0" d="M1.7,22.3c5.7-5.7,11.3-5.7,17,0c3.3-3.3,3.5-5.3,0.8-6c2.7,0.7,3.5-1.1,2.3-5.6s-3.3-5.2-6.3-2.1
+	c3-3,2.3-5.2-2.1-6.3S7,1.8,7.7,4.6C7,1.8,5,2.1,1.7,5.3C7.3,11,7.3,16.7,1.7,22.3"/>
+</svg><a title="学习至上!
+" href="/">在风陵渡口学coding!</a></div>
+        <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
+      </div><nav class="navigation">
+        <ul><li class="navigation__link"><a href="/archive.html">归档</a></li><li class="navigation__link"><a href="/about.html">关于</a></li><li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
+        </ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside js-col-aside"></div>
+
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/auto-update-python-module">自动更新python模块脚本</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.
+
+源码
+
+#!/bin/bash
+for line in `pip list --outdated|cut -d " " -f 1|sed 1,2d`
+do
+ sudo pip install --upgrade  $line
+done</div><p><a href="/auto-update-python-module">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月06日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-06T03:22:10+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/jekyll-exercise">jekyll 命令练习</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">jekyll 命令行参数
+
+
+  jekyll new   创建文件基本框架
+  jekyll bulid或jekyll b path 输出网页文件,默认输出到./_site文件下面
+  jekeyll serve或jekyll s path在本地调试编写的网页。
+  jekyll doctor诊断问题
+  jekeyll new-theme themename创建一个新的主题框架
+  jekyll clean移除生成的网页和元数据
+  jekyll helpjekyll 提供的帮助。如:jekyll help build.
+
+
+全局配置
+
+可以使用命令行和修改_config.yml文件的方式设置。
+
+
+  
+    
+      设置选项
+      配置文件方法
+      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/sublime-settings-notes">sublime_text 配置技巧</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。
+
+sublimetext的程序菜单选项分别由一下文件组成。
++ Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。)
++ Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名)
++ Context.sublime-menu (文本编辑窗口右键菜单)
+
+
+修改首选项插件设置行为，使打开设置为默认和用户分屏效果.
+
+
+  json格式
+
+
+{
+    "command": "edit_settings",
+    "args":
+    {
+        // 根据插件的名字来修改下面2个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。...</div><p><a href="/sublime-settings-notes">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月02日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-02T05:30:05+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的
+
+Measure-Object
+Description
+Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum
+mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)
+Alias
+measure
+Examples
+
+
+  统计某个文件的行数、字符数、文件数。
+    # 查看win10系统hosts文件夹的行号，单词数，字符数。
+$hosts ; Get-Content $hosts
+Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/PowerShell-Object-commands">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月29日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-29T07:56:28+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/mean">平均数</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">关于各种平均数的描述!
+
+简单平均数(mean)
+求和除个数
+
+
+  公式
+
+
+
+
+
+  例子
+
+
+省略
+
+
+  函数
+
+
+mean()
+
+
+截尾平均数(trimmed mean)
+将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
+
+trimmean(data,precent,flag)
+
+flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。
+有round,floor,weighted.
+
+几何平均数(geometric mean)
+通常是增长率之内的求平均数的方法
+
+
+  
+    公式
+
+    
+  
+  
+    例子
+  
+
+
+假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算:
+	
+
+
+  
+  ...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月27日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-27T07:45:10+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
+
+分号
+分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句.
+
+短路与
+
+event A &amp;&amp; event B
+#只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序.
+#只有A成功了,B才可以运行.A不成功就停止运行.
+
+
+短路或
+
+envent A　|| envent B
+#事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。
+#B应该属于一个备选方案.
+
+
+命令替换符
+将一条命令的输出,作为参数或者选项插入另一条命令
+
+cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令....</div><p><a href="/operators">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/same-random-number-generate">生成重复的随机数</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">使用python和matlab生成重复的随机数,关键在于种子生成器.
+
+使用rng函数
+
+&gt;&gt; rng(1)
+&gt;&gt; rand
+
+ans =
+
+	0.4170
+
+&gt;&gt; rand
+
+ans =
+
+	0.7203
+
+&gt;&gt; rng(1)
+&gt;&gt; rand
+
+ans =
+
+	0.4170
+% 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可.
+% 同时要求设定了种子之后,只有接下来的一次有效
+
+使用RandomState函数
+In [1]: import numpy as np
+
+In [2]: s1=np.random.RandomState(1)
+
+In [3]: s1.randn(5)
+Out...</div><p><a href="/same-random-number-generate">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/softlink-and-hardlink">链接</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)
+
+索引节点
+索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。
+软链接
+软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。
+
+ln -s 原始文件 建立的链接地址 （应该是要使用绝对路径）
+
+软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。
+硬链接
+ln 原始文件地址 建立的链接地址
+
+硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容，
+其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。
+好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址,
+硬链接就是原文件...</div><p><a href="/softlink-and-hardlink">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月03日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-03T00:00:00+08:00"></div>
+      </article></div>
+</div><div class="layout--home"></div>
+<script>/*(function () {
+
+})();*/</script>
+
+</div></article>
+              </div>
+            </div></div></div>
+
+        <div class="page__footer">
+<div class="footer js-page-footer">
+  <div class="main"><aside  itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jeff"><meta itemprop="url" content="https://dygck.github.io"><meta itemprop="description" content="浮生若梦,为欢几何?"><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><link itemprop="url" href="https://dygck.github.io"><li title="给我发邮件。">
+      <a class="button button--circle mail-button" itemprop="email" href="mailto:fj1945@live.cn" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a><li title="在 Github 上关注我。">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/dygck" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li></ul>
+</div>
+</div>
+    </aside>
+    <footer class="site-info"><p class="menu menu--center">
+        <span>© 在风陵渡口学coding! 2018</span>
+        <a type="application/rss+xml" href="/feed.xml">RSS</a>
+      </p>
+      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a succinct theme for blogging." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </p>
+    </footer>
+  </div>
+</div></div>
+      </div>
+    </div><div class="page__search-panel"><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">搜索</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--secondary button--pill search__cancel js-search-toggle">
+        取消</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  function initData(data) {
+    var _data = [], i, j, key, keys, cur;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i], _data[key] = [];
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        cur.title = window.decodeUrl(cur.title);
+        cur.url = window.decodeUrl(cur.url);
+        _data[key].push(cur);
+      }
+    }
+    return _data;
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) {
+      return null;
+    }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $searchBox = $('.js-search-box');
+  var $searchInput = $searchBox.children('input');
+  var $searchClear = $searchBox.children('.js-icon-clear');
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function searchBoxEmpty() {
+    $searchBox.removeClass('not-empty'); $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+
+  $searchInput.on('input', window.throttle(function() {
+    var val = $(this).val();
+    if (val === '' || typeof val !== 'string') {
+      searchBoxEmpty();
+    } else {
+      $searchBox.addClass('not-empty'); $result.html(render(searchByQuery(val)));
+      $resultItems = $('.search-result__item'); activeIndex = 0;
+      $resultItems.eq(0).addClass('active');
+    }
+  }, 400));
+  $searchInput.on('focus', function() {
+    $(this).addClass('focus');
+  });
+  $searchInput.on('blur', function() {
+    $(this).removeClass('focus');
+  });
+  $searchClear.on('click', function() {
+    $searchInput.val(''); searchBoxEmpty();
+  });
+
+  // search panel
+  var $pageRoot = $('.js-page-root');
+  var $pageMain = $('.js-page-main');
+  var $searchToggle = $('.js-search-toggle');
+  var showSearch = false;
+  var scrollTop;
+
+  function openSearchPanel() {
+    scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+    $pageRoot.addClass('show-search-panel');
+    $pageMain.scrollTop(scrollTop);
+    $searchInput[0].focus();
+  }
+
+  function closeSearchPanel() {
+    $pageRoot.removeClass('show-search-panel');
+    $(window).scrollTop(scrollTop);
+    $searchInput[0].blur();
+    setTimeout(function() {
+      $searchInput.val(''); searchBoxEmpty();
+      window.pageAsideAffix && window.pageAsideAffix.refresh();
+    }, 400);
+  }
+
+  // Char Code: 13  Enter, 27  ESC, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇, 83  S, 191 /
+  function isFormElement(e) {
+    var tagName = e.target.tagName || e.srcElement.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  }
+  function charCodeFilter(e) {
+    return e.target === $searchInput[0] && (e.which === 13 || e.which === 27 || e.which === 38 || e.which === 40);
+  }
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  $(document).on('keyup', function(e) {
+    if (!isFormElement(e) || charCodeFilter(e)) {
+      if (e.which === 83 || e.which === 191) {
+        showSearch || (showSearch = true, openSearchPanel());
+      } else if (e.which ===  27) {
+        showSearch && (showSearch = false, closeSearchPanel());
+      } else if (e.which === 38) {
+        showSearch && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        showSearch && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        showSearch && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+
+  $searchToggle.on('click', function() {
+    showSearch = !showSearch;
+    showSearch ? openSearchPanel() : closeSearchPanel();
+  });
+});</script></div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $root, $scrollTarget, $scroller, $scroll;
+    var rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop;
+    var offsetBottom = 0, disabled = false, scrollTarget = window, scroller = 'html, body', scroll = window.document;
+    var hasInit = false, isOverallScroller = true, curState;
+
+    function setOptions(options) {
+      var _options = options || {};
+      _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+      _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+      _options.scroller && (scroller = _options.scroller);
+      _options.scroll && (scroll = _options.scroll);
+      _options.disabled !== undefined && (disabled = _options.disabled);
+      $scrollTarget = $(scrollTarget);
+      $scroller = $(scroller);
+      isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+      $scroll = $(scroll);
+    }
+    function initData() {
+      top();
+      rootHeight = $root.outerHeight();
+      rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+      rootLeft = $root.offset().left;
+    }
+    function calc(needInitData) {
+      needInitData && initData();
+      scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+      rootBottomTop = scrollBottom - rootTop;
+    }
+    function top() {
+      if (curState !== 'top') {
+        $root.removeClass('fixed').css({
+          left: 0,
+          top: 0
+        });
+        curState = 'top';
+      }
+    }
+    function fixed() {
+      if (curState !== 'fixed') {
+        $root.addClass('fixed').css({
+          left: rootLeft + 'px',
+          top: 0
+        });
+        curState = 'fixed';
+      }
+    }
+    function bottom() {
+      if (curState !== 'bottom') {
+        $root.removeClass('fixed').css({
+          left: 0,
+          top: rootBottomTop + 'px'
+        });
+        curState = 'bottom';
+      }
+    }
+    function setState() {
+      var scrollTop = $scrollTarget.scrollTop();
+      if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+        fixed();
+      } else if (scrollTop < rootTop) {
+        top();
+      } else {
+        bottom();
+      }
+    }
+    function init() {
+      if(!hasInit) {
+        var interval, timeout;
+        calc(true); setState();
+        // run calc every 100 millisecond
+        interval = setInterval(function() {
+          calc();
+        }, 100);
+        timeout = setTimeout(function() {
+          clearInterval(interval);
+        }, 45000);
+        window.pageLoad.then(function() {
+          setTimeout(function() {
+            clearInterval(interval);
+            clearTimeout(timeout);
+          }, 3000);
+        });
+        $scrollTarget.on('scroll', function() {
+          disabled || setState();
+        });
+        $window.on('resize', function() {
+          disabled || (calc(true), setState());
+        });
+        hasInit = true;
+      }
+    }
+
+    function affix(options) {
+      $root = this;
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $root, $scrollTarget, $scroller, $tocUl = $('<ul class="toc"></ul>'), $tocLi, $headings, $activeLast, $activeCur;
+    var selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false;
+    var headingsPos, scrolling = false, rendered = false, hasInit = false;
+    function setOptions(options) {
+      var _options = options || {};
+      _options.selectors && (selectors = _options.selectors);
+      _options.container && (container = _options.container);
+      _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+      _options.scroller && (scroller = _options.scroller);
+      _options.disabled !== undefined && (disabled = _options.disabled);
+      $headings = $(container).find(selectors).filter('[id]');
+      $scrollTarget = $(scrollTarget);
+      $scroller = $(scroller);
+    }
+    function calc() {
+      headingsPos = [];
+      $headings.each(function() {
+        headingsPos.push(Math.floor($(this).position().top));
+      });
+    }
+    function setState(element, disabled) {
+      var scrollTop = $scrollTarget.scrollTop(), i;
+      if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+      if (element) {
+        $activeCur = element;
+      } else {
+        for (i = 0; i < headingsPos.length; i++) {
+          if (scrollTop >= headingsPos[i]) {
+            $activeCur = $tocLi.eq(i);
+          } else {
+            $activeCur || ($activeCur = $tocLi.eq(i));
+            break;
+          }
+        }
+      }
+      $activeLast && $activeLast.removeClass('active');
+      ($activeLast = $activeCur).addClass('active');
+    }
+    function render() {
+      if(!rendered) {
+        $root.append($tocUl);
+        $headings.each(function() {
+          var $this = $(this);
+          $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+            .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+        });
+        $tocLi = $tocUl.children('li');
+        $tocUl.on('click', 'a', function(e) {
+          e.preventDefault();
+          var $this = $(this);
+          scrolling = true;
+          setState($this.parent());
+          $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+            scrolling = false;
+          });
+        });
+      }
+      rendered = true;
+    }
+    function init() {
+      var interval, timeout;
+      if(!hasInit) {
+        render(); calc(); setState(null, scrolling);
+        // run calc every 100 millisecond
+        interval = setInterval(function() {
+          calc();
+        }, 100);
+        timeout = setTimeout(function() {
+          clearInterval(interval);
+        }, 45000);
+        window.pageLoad.then(function() {
+          setTimeout(function() {
+            clearInterval(interval);
+            clearTimeout(timeout);
+          }, 3000);
+        });
+        $scrollTarget.on('scroll', function() {
+          disabled || setState(null, scrolling);
+        });
+        $window.on('resize', window.throttle(function() {
+          if (!disabled) {
+            render(); calc(); setState(null, scrolling);
+          }
+        }, 100));
+      }
+      hasInit = true;
+    }
+    function toc(options) {
+      $root = this;
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();/*(function () {
+
+})();*/</script>
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();</script>
+  </body>
+</html>
