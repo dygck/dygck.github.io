@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://dygck.github.io/sitemap.xml

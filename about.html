@@ -1,10 +1,11 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>链接 - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>自述 - 在风陵渡口学coding!</title>
 
-<meta name="description" content="Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)索引节点索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。软链接软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。ln -s 原始文件 建立的链接地址 （应该是要使用绝对路径）软链接可以跨文...">
-<link rel="canonical" href="https://dygck.github.io/softlink-and-hardlink"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<meta name="description" content="学习至上!
+">
+<link rel="canonical" href="https://dygck.github.io/about"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -247,7 +248,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header"><header class="header"><div class="main">
@@ -269,85 +270,15 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
+              <div class="col-aside js-col-aside"></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>链接</h1></header><span class="split-space">&nbsp;</span>
-          <a class="edit-on-github"
-            title="在 Github 上修改"
-            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-09-03-softlink-and-hardlink.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="链接"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月03日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-03T00:00:00+08:00"><div class="js-article-content"><div class="layout--article">
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>自述</h1></header><meta itemprop="headline" content="自述"><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--home"></div>
+<script>/*(function () {
 
-  <div class="article__content" itemprop="articleBody"><p>Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)</p>
+})();*/</script>
 
-<h2 id="索引节点">索引节点</h2>
-<p>索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。</p>
-<h2 id="软链接">软链接</h2>
-<p>软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln <span class="nt">-s</span> 原始文件 建立的链接地址 （应该是要使用绝对路径）
-</code></pre></div></div>
-<p>软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。</p>
-<h2 id="硬链接">硬链接</h2>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ln 原始文件地址 建立的链接地址
-</code></pre></div></div>
-<p>硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容，
-其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。
-好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址,
-硬链接就是原文件的别名.通过硬链接改变文件内容，因为改变的是指向同一个内存地址的内容，
-硬链接和原文件会同时都发生改变。</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># 数组是引用类型，b是a的别名，改变a的内容同时b也会发生变化，指向的是同一个内存地址中的数据。硬链接也是一个道理。</span>
-<span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">b</span><span class="o">=</span><span class="n">a</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="c">#[2, 2, 3, 4]</span>
-<span class="c">#[2, 2, 3, 4]</span>
-</code></pre></div></div>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="kd">var</span> <span class="nx">b</span><span class="o">=</span><span class="nx">a</span>
-<span class="nx">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
-<span class="c1">//[2, 2, 3, 4]</span>
-<span class="c1">//[2, 2, 3, 4]</span>
-</code></pre></div></div>
-</div>
-
-  <footer class="article__footer"><meta itemprop="dateModified" content="2018-09-03T00:00:00+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
-    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
-      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
-        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
-      </a>
-    </p>
-  </div></div></footer><div class="article__section-navigator clearfix"><div class="next"><span>下篇</span><a href="/same-random-number-generate">生成重复的随机数</a></div></div></div>
-
-<script>(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    $(function() {
-      var $this ,$scroll;
-      var $articleContent = $('.js-article-content');
-      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
-      $scroll = $(scroll);
-
-      $articleContent.find('.highlight').each(function() {
-        $this = $(this);
-        $this.attr('data-lang', $this.find('code').attr('data-lang'));
-      });
-      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
-        $this = $(this);
-        $this.append($('<a class="anchor" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
-      });
-      $articleContent.on('click', '.anchor', function() {
-        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
-      });
-    });
-  });
-})();</script></div></article>
+<p>单纯就是想找个地方记录一些好玩的事情,仅此而已!</p>
+</div></article>
               </div>
             </div></div></div>
 
@@ -815,67 +746,7 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   });
 })();/*(function () {
 
-})();*/</script><script>
-  /* toc must before affix, since affix need to konw toc' height. */(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window);
-    var $articleContent = $('.js-article-content');
-    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
-    var toc;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
-
-    function disabled() {
-      return $col2.css('display') === 'none' || !hasToc;
-    }
-
-    tocDisabled = disabled();
-
-    toc = $tocRoot.toc({
-      selectors: TOC_SELECTOR,
-      container: $articleContent,
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      tocDisabled = disabled();
-      toc && toc.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-  });
-})();(function() {
-  var SOURCES = window.TEXT_VARIABLES.sources;
-  window.Lazyload.js(SOURCES.jquery, function() {
-    var $window = $(window), $pageFooter = $('.js-page-footer');
-    var $pageAside = $('.js-page-aside');
-    var affix;
-    var tocDisabled = false;
-    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
-
-    affix = $pageAside.affix({
-      offsetBottom: $pageFooter.outerHeight(),
-      scrollTarget: hasSidebar ? '.js-page-main' : null,
-      scroller: hasSidebar ? '.js-page-main' : null,
-      scroll: hasSidebar ? $('.js-page-main').children() : null,
-      disabled: tocDisabled
-    });
-
-    $window.on('resize', window.throttle(function() {
-      affix && affix.setOptions({
-        disabled: tocDisabled
-      });
-    }, 100));
-
-    window.pageAsideAffix = affix;
-  });
-})();</script>
+})();*/</script>
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];
