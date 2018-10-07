@@ -5,7 +5,7 @@
 
 <meta name="description" content="学习至上!
 ">
-<link rel="canonical" href="https://dygck.github.io/"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<link rel="canonical" href="https://dygck.github.io/page2/"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -273,230 +273,37 @@
               <div class="col-aside js-col-aside"></div>
 
               <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/magic-reference">Line Magics</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">%activity
-
-%activity FILENAME - run a widget-based activity
-  (poll, classroom response, clicker-like activity)
-
-This magic will load the JSON in the filename.
-
-Examples:
-    %activity /home/teacher/activity1
-    %activity /home/teacher/activity1 new
-    %activity /home/teacher/activity1 edit
-
-%cd
-
-%cd PATH - change current directory of session
-...</div><p><a href="/magic-reference">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T12:59:56+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/auto-update-python-module">自动更新python模块脚本</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.
-
-源码
-
-#!/bin/bash
-for line in `pip list --outdated|cut -d " " -f 1|sed 1,2d`
-do
- sudo pip install --upgrade  $line
-done</div><p><a href="/auto-update-python-module">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月06日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-06T03:22:10+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/jekyll-exercise">jekyll 命令练习</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">jekyll 命令行参数
-
-
-  jekyll new   创建文件基本框架
-  jekyll bulid或jekyll b path 输出网页文件,默认输出到./_site文件下面
-  jekeyll serve或jekyll s path在本地调试编写的网页。
-  jekyll doctor诊断问题
-  jekeyll new-theme themename创建一个新的主题框架
-  jekyll clean移除生成的网页和元数据
-  jekyll helpjekyll 提供的帮助。如:jekyll help build.
-
-
-全局配置
-
-可以使用命令行和修改_config.yml文件的方式设置。
-
-
-  
-    
-      设置选项
-      配置文件方法
-      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/sublime-settings-notes">sublime_text 配置技巧</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。
-
-sublimetext的程序菜单选项分别由一下文件组成。
-+ Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。)
-+ Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名)
-+ Context.sublime-menu (文本编辑窗口右键菜单)
-
-
-修改首选项插件设置行为，使打开设置为默认和用户分屏效果.
-
-
-  json格式
-
-
-{
-    "command": "edit_settings",
-    "args":
-    {
-        // 根据插件的名字来修改下面2个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。...</div><p><a href="/sublime-settings-notes">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月02日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-02T05:30:05+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的
-
-Measure-Object
-Description
-Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum
-mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)
-Alias
-measure
-Examples
-
-
-  统计某个文件的行数、字符数、文件数。
-    # 查看win10系统hosts文件夹的行号，单词数，字符数。
-$hosts ; Get-Content $hosts
-Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/PowerShell-Object-commands">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月29日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-29T07:56:28+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/mean">平均数</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">关于各种平均数的描述!
-
-简单平均数(mean)
-求和除个数
-
-
-  公式
-
-
-
-
-
-  例子
-
-
-省略
-
-
-  函数
-
-
-mean()
-
-
-截尾平均数(trimmed mean)
-将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
-
-trimmean(data,precent,flag)
-
-flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。
-有round,floor,weighted.
-
-几何平均数(geometric mean)
-通常是增长率之内的求平均数的方法
-
-
-  
-    公式
-
-    
-  
-  
-    例子
-  
-
-
-假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算:
-	
-
-
-  
-  ...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月27日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-27T07:45:10+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
-
-分号
-分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句.
-
-短路与
-
-event A &amp;&amp; event B
-#只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序.
-#只有A成功了,B才可以运行.A不成功就停止运行.
-
-
-短路或
-
-envent A　|| envent B
-#事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。
-#B应该属于一个备选方案.
-
-
-命令替换符
-将一条命令的输出,作为参数或者选项插入另一条命令
-
-cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令....</div><p><a href="/operators">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/same-random-number-generate">生成重复的随机数</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">使用python和matlab生成重复的随机数,关键在于种子生成器.
-
-使用rng函数
-
-&gt;&gt; rng(1)
-&gt;&gt; rand
-
-ans =
-
-	0.4170
-
-&gt;&gt; rand
-
-ans =
-
-	0.7203
-
-&gt;&gt; rng(1)
-&gt;&gt; rand
-
-ans =
-
-	0.4170
-% 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可.
-% 同时要求设定了种子之后,只有接下来的一次有效
-
-使用RandomState函数
-In [1]: import numpy as np
-
-In [2]: s1=np.random.RandomState(1)
-
-In [3]: s1.randn(5)
-Out...</div><p><a href="/same-random-number-generate">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
+          <header><h2 itemprop="headline" class="item__header"><a href="/softlink-and-hardlink">链接</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)
+
+索引节点
+索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。
+软链接
+软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。
+
+ln -s 原始文件 建立的链接地址 （应该是要使用绝对路径）
+
+软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。
+硬链接
+ln 原始文件地址 建立的链接地址
+
+硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容，
+其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。
+好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址,
+硬链接就是原文件...</div><p><a href="/softlink-and-hardlink">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月03日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-03T00:00:00+08:00"></div>
       </article></div>
 </div><div class="layout--home"><div class="pagination"><p>共计 9 篇文章，2 页。</p>
     <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
+      <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>
-          </div></li><li>
-              <div class="button button--primary button--circle focus"><span>1</span></div>
+          </a></li><li>
+              <a class="button button--secondary button--circle" href="/"><span>1</span></a>
             </li><li>
-                <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-              </li><li><a class="button button--secondary button--circle" href="/page2">
+              <div class="button button--primary button--circle focus"><span>2</span></div>
+            </li><li><div class="button button--secondary button--circle disabled">
             <i class="fas fa-angle-right"></i>
-          </a></li></ul>
+          </div></li></ul>
     </div>
   </div></div>
 <script>/*(function () {

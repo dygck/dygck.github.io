@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>自动更新python模块脚本 - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Line Magics - 在风陵渡口学coding!</title>
 
-<meta name="description" content="首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.源码#!/bin/bashfor line in `pip list --outdated|cut -d " " -f 1|sed 1,2d`do sudo pip install --upgrade  $linedone">
-<link rel="canonical" href="https://dygck.github.io/auto-update-python-module"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<meta name="description" content="%activity%activity FILENAME - run a widget-based activity  (poll, classroom response, clicker-like activity)This magic will load the JSON in the filename.Exa...">
+<link rel="canonical" href="https://dygck.github.io/magic-reference"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -271,32 +271,907 @@
 
               <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>自动更新python模块脚本</h1></header><span class="split-space">&nbsp;</span>
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Line Magics</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
-            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-06-auto-update-python-module.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="自动更新python模块脚本"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月06日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-06T03:22:10+08:00"><div class="js-article-content"><div class="layout--article">
+            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-07-magic-reference.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Line Magics"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T12:59:56+08:00"><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.</p>
+  <div class="article__content" itemprop="articleBody"><h2 id="activity"><code class="highlighter-rouge">%activity</code></h2>
 
-<h2 id="源码">源码</h2>
+<p>%activity FILENAME - run a widget-based activity
+  (poll, classroom response, clicker-like activity)</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">#!/bin/bash</span>
-<span class="k">for </span>line <span class="k">in</span> <span class="sb">`</span>pip list <span class="nt">--outdated</span>|cut <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f</span> 1|sed 1,2d<span class="sb">`</span>
-<span class="k">do
- </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span>  <span class="nv">$line</span>
-<span class="k">done</span>
+<p>This magic will load the JSON in the filename.</p>
+
+<p>Examples:
+    %activity /home/teacher/activity1
+    %activity /home/teacher/activity1 new
+    %activity /home/teacher/activity1 edit</p>
+
+<h2 id="cd"><code class="highlighter-rouge">%cd</code></h2>
+
+<p>%cd PATH - change current directory of session</p>
+
+<p>This line magic is used to change the directory of the
+notebook or console.</p>
+
+<p>Note that this is not the same directory as used by
+the %shell magics.</p>
+
+<p>Example:
+    %cd ..</p>
+
+<h2 id="connect_info"><code class="highlighter-rouge">%connect_info</code></h2>
+
+<p>%connect_info - show connection information</p>
+
+<p>This line magic will show the connection information for this
+language kernel instance. This information is only necessary
+if you are interested in making additional connections to the
+running kernel.</p>
+
+<p>Example:
+    %connect_info</p>
+
+<p>Paste the given JSON into a file, and connect with:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ipython &lt;app&gt; --existing &lt;file&gt;
 </code></pre></div></div>
+
+<p>or, if you are local, you can connect with just:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$&gt; ipython &lt;app&gt; --existing %(key)s
+</code></pre></div></div>
+
+<p>or even just:
+    $&gt; ipython <app> --existing</app></p>
+
+<p>if this is the most recent Jupyter session you have started.</p>
+
+<h2 id="conversation"><code class="highlighter-rouge">%conversation</code></h2>
+
+<p>%conversation ID - insert conversation by ID
+%%conversation ID - insert conversation by ID</p>
+
+<h2 id="dot"><code class="highlighter-rouge">%dot</code></h2>
+
+<p>%dot CODE - render code as Graphviz image</p>
+
+<p>This line magic will render the Graphiz CODE, and render
+it as an image.</p>
+
+<p>Example:
+    %dot graph A { a-&gt;b };</p>
+
+<h2 id="download"><code class="highlighter-rouge">%download</code></h2>
+
+<p>%download URL [-f FILENAME] - download file from URL</p>
+
+<p>This line magic will download and save a file. By
+default it will use the same filename as the URL.
+You can give it another name using -f.</p>
+
+<p>Examples:
+    %%download http://some/file/from/internet.txt -f myfile.txt
+    %%download http://some/file/from/program.ss</p>
+
+<h2 id="options">Options:</h2>
+<p>-f –filename  use the provided name as filename [default: None]</p>
+
+<h2 id="edit"><code class="highlighter-rouge">%edit</code></h2>
+
+<p>%edit FILENAME - load code from filename into next cell for editing</p>
+
+<p>This line magic will open the file in the next cell, and allow
+you edit it.</p>
+
+<p>This is a shortcut for %load, and appending a “%%file” as first line.</p>
+
+<p>Example:
+    %edit myprogram.ss</p>
+
+<h2 id="get"><code class="highlighter-rouge">%get</code></h2>
+
+<p>%get VARIABLE - get a variable from the kernel in a Python-type.</p>
+
+<p>This line magic is used to get a variable.</p>
+
+<p>Examples:
+    %get x</p>
+
+<h2 id="help"><code class="highlighter-rouge">%help</code></h2>
+
+<p>This is MetaKernel Python. It implements a Python interpreter.</p>
+
+<h2 id="html"><code class="highlighter-rouge">%html</code></h2>
+
+<p>%html CODE - display code as HTML</p>
+
+<p>This line magic will send the CODE to the browser as
+HTML.</p>
+
+<p>Example:
+    %html <u>This is underlined!</u></p>
+
+<h2 id="include"><code class="highlighter-rouge">%include</code></h2>
+
+<p>%include FILENAME … - include code from filename into this code</p>
+
+<p>This line magic will get the contents of a file and include it
+in this cell evaluation.</p>
+
+<p>You can have multiple %include’s at the beginning of a cell,
+and they will be included in order.</p>
+
+<p>Examples:
+    %include myprog.py
+    %include myprog1.py myprog2.py</p>
+
+<h2 id="install"><code class="highlighter-rouge">%install</code></h2>
+
+<p>%install PACKAGE - install package</p>
+
+<p>Example:
+    %install calico-spell-check</p>
+
+<h2 id="install_magic"><code class="highlighter-rouge">%install_magic</code></h2>
+
+<p>%install_magic URL - download and install magic from URL</p>
+
+<p>This line magic will copy the file at the URL into your
+personal magic folder.</p>
+
+<p>Example:
+    %install_magic http://path/to/some/magic.py</p>
+
+<h2 id="javascript"><code class="highlighter-rouge">%javascript</code></h2>
+
+<p>%javascript CODE - send code as JavaScript</p>
+
+<p>This line magic will execute the CODE on the line as
+JavaScript in the browser.</p>
+
+<p>Example:
+    %javascript console.log(“Print in the browser console”)</p>
+
+<h2 id="jigsaw"><code class="highlighter-rouge">%jigsaw</code></h2>
+
+<p>%jigsaw LANGUAGE - show visual code editor/generator</p>
+
+<p>This line magic will allow visual code editing or generation.</p>
+
+<p>Examples:
+    %jigsaw Processing
+    %jigsaw Python
+    %jigsaw Processing –workspace workspace1</p>
+
+<h2 id="options-1">Options:</h2>
+<p>-w –workspace use the provided name as workspace filename [default: None]</p>
+
+<h2 id="kernel"><code class="highlighter-rouge">%kernel</code></h2>
+
+<p>%kernel MODULE CLASS [-k NAME] - construct a kernel for sending code.</p>
+
+<p>This line magic will contruct a kernel language so that you can
+communicate.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%kernel bash_kernel BashKernel -k bash
+</code></pre></div></div>
+
+<p>Use <code class="highlighter-rouge">%kx</code> or <code class="highlighter-rouge">%%kx</code> to send code to the kernel.</p>
+
+<p>Also returns the kernel as output.</p>
+
+<h2 id="options-2">Options:</h2>
+<p>-k –kernel_name kernel name given to use for execution [default: default]</p>
+
+<h2 id="kx"><code class="highlighter-rouge">%kx</code></h2>
+
+<p>%kx CODE [-k NAME] - send the code to the kernel.</p>
+
+<p>This line magic will send the CODE to the kernel
+for execution.</p>
+
+<p>Returns the result of the execution as output.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%kernel ls -al
+</code></pre></div></div>
+
+<p>Use <code class="highlighter-rouge">%kernel MODULE CLASS [-k NAME]</code> to create a kernel.</p>
+
+<h2 id="options-3">Options:</h2>
+<p>-k –kernel_name kernel name given to use for execution [default: None]</p>
+
+<h2 id="latex"><code class="highlighter-rouge">%latex</code></h2>
+
+<p>%latex TEXT - display text as LaTeX</p>
+
+<p>This line magic will display the TEXT on the line as LaTeX.</p>
+
+<p>Example:
+    %latex x_1 = \dfrac{a}{b}</p>
+
+<h2 id="load"><code class="highlighter-rouge">%load</code></h2>
+
+<p>%load FILENAME - load code from filename into next cell</p>
+
+<p>This line magic will get the contents of a file and load it
+into the next cell.</p>
+
+<p>Example:
+    %load myprog.py</p>
+
+<h2 id="ls"><code class="highlighter-rouge">%ls</code></h2>
+
+<p>%ls PATH - list files and directories under PATH</p>
+
+<p>This line magic is used to list the directory contents.</p>
+
+<p>Examples:
+    %ls .
+    %ls ..</p>
+
+<h2 id="options-4">Options:</h2>
+<p>-r –recursive recursively descend into subdirectories [default: False]</p>
+
+<h2 id="lsmagic"><code class="highlighter-rouge">%lsmagic</code></h2>
+
+<p>%lsmagic - list the current line and cell magics</p>
+
+<p>This line magic will list all of the available cell and line
+magics installed in the system and in your personal magic
+folder.</p>
+
+<p>Example:
+    %lsmagic</p>
+
+<h2 id="macro"><code class="highlighter-rouge">%macro</code></h2>
+
+<p>%macro NAME - execute a macro
+%macro -l [all|learned|system] - list macros
+%macro [-s] [-d] NAME - show or delete a macro</p>
+
+<p>This line macro will execute, show, list, or delete the
+named macro.</p>
+
+<p>Examples:
+    %macro renumber-cells</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%macro test
+print "Ok!"
+
+%macro -l all
+
+%macro -d test
+</code></pre></div></div>
+
+<h2 id="options-5">Options:</h2>
+<p>-s –show      show macro [default: False]
+-l –list      list macros [default: False]
+-d –delete    delete a named macro [default: False]</p>
+
+<h2 id="magic"><code class="highlighter-rouge">%magic</code></h2>
+
+<p>%magic - show installed magics</p>
+
+<p>This line magic shows all of the install magics, either from
+the system magic folder, or your own private magic folder.</p>
+
+<h2 id="matplotlib"><code class="highlighter-rouge">%matplotlib</code></h2>
+
+<p>%matplotlib BACKEND - set the matplotlib backend to BACKEND</p>
+
+<p>This line magic will set (and reload) the items associated
+with the matplotlib backend.</p>
+
+<p>Also, monkeypatches the IPython.display.display
+to work with metakernel-based kernels.</p>
+
+<p>Example:
+    %matplotlib notebook</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import matplotlib.pyplot as plt
+plt.plot([3, 8, 2, 5, 1])
+plt.show()
+</code></pre></div></div>
+
+<h2 id="parallel"><code class="highlighter-rouge">%parallel</code></h2>
+
+<p>%parallel MODULE CLASS [-k NAME] [-i […]] - construct an interface to the cluster.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%parallel bash_kernel BashKernel
+%parallel bash_kernel BashKernel -k bash
+%parallel bash_kernel BashKernel --i [0,2:5,9,...]
+</code></pre></div></div>
+
+<p>cluster_size and cluster_rank variables are set upon
+initialization of the remote node (if the kernel
+supports %set).</p>
+
+<p>Use %px or %%px to send code to the cluster.</p>
+
+<h2 id="options-6">Options:</h2>
+<p>-i –ids       the machine ids to use from the cluster [default: None]
+-k –kernel_name arbitrary name given to reference kernel [default: default]</p>
+
+<h2 id="plot"><code class="highlighter-rouge">%plot</code></h2>
+
+<p>%plot [options] backend - configure plotting for the session.</p>
+
+<p>This line magic will configure the plot settings for this
+language.</p>
+
+<p>Examples:
+    %plot qt –format=png
+    %plot inline -w 640</p>
+
+<p>Note: not all languages may support the %plot magic, and not all
+options may be supported.</p>
+
+<h2 id="options-7">Options:</h2>
+<p>-h –height    Plot height in pixels
+-w –width     Plot width in pixels
+-r –resolution Resolution in pixels per inch
+-b –backend   Backend selection [default: inline]
+-f –format    Plot format (png, svg or jpg).
+-s –size      Pixel size of plots, “width,height”</p>
+
+<h2 id="pmap"><code class="highlighter-rouge">%pmap</code></h2>
+
+<p>%pmap FUNCTION [ARGS1,ARGS2,…] - (“parallel map”) call a FUNCTION on args</p>
+
+<p>This line magic will apply a function name to all of the
+arguments given one at a time using a dynamic load balancing scheduler.</p>
+
+<p>Currently, the args are provided as a Python expression (with no spaces).</p>
+
+<p>You must first setup a cluster using the %parallel magic.</p>
+
+<p>Examples:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%pmap function-name-in-language range(10)
+%pmap function-name-in-language [1,2,3,4]
+%pmap run_experiment range(1,100,5)
+%pmap run_experiment ["test1","test2","test3"]
+%pmap f [(1,4,7),(2,3,5),(7,2,2)]
+</code></pre></div></div>
+
+<p>The function name must be a function that is available on all
+nodes in the cluster. For example, you could:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%px
+(define myfunc
+   (lambda (n)
+     (+ n 1)))
+</code></pre></div></div>
+
+<p>to define myfunc on all machines (use %%px -e to also define
+it in the running notebook or console). Then you can apply it
+to a list of arguments:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%pmap myfunc range(100)
+</code></pre></div></div>
+
+<p>The load balancer will run myfunc on the next available node
+in the cluster.</p>
+
+<p>Note: not all languages may support running a function via this magic.</p>
+
+<h2 id="px"><code class="highlighter-rouge">%px</code></h2>
+
+<p>%px EXPRESSION - send EXPRESSION to the cluster.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%px sys.version
+%px -k scheme (define x 42)
+%px x
+%px cluster_rank
+</code></pre></div></div>
+
+<p>cluster_size and cluster_rank variables are set upon
+initialization of the remote node (if the kernel
+supports %set).</p>
+
+<p>Use %parallel to initialize the cluster.</p>
+
+<h2 id="options-8">Options:</h2>
+<p>-e –evaluate  evaluate code in the current kernel, too. The current kernel should be of the same language as the cluster. [default: False]
+-k –kernel_name kernel name given to use for execution [default: None]</p>
+
+<h2 id="python"><code class="highlighter-rouge">%python</code></h2>
+
+<p>%python CODE - evaluate code as Python</p>
+
+<p>This line magic will evaluate the CODE (either expression or
+statement) as Python code.</p>
+
+<p>Note that the version of Python is that of the notebook server.</p>
+
+<p>Examples:
+    %python x = 42
+    %python import math
+    %python x + math.pi</p>
+
+<h2 id="reload_magics"><code class="highlighter-rouge">%reload_magics</code></h2>
+
+<p>%reload_magics - reload the magics from the installed files</p>
+
+<p>Example:
+    %reload_magics</p>
+
+<p>This line magic will reload the magics installed in the
+system, and in your private magic folder.</p>
+
+<p>You only need to do this if you edit a magic file. It runs
+automatically if you install a new magic.</p>
+
+<h2 id="restart"><code class="highlighter-rouge">%restart</code></h2>
+
+<p>%restart - restart session</p>
+
+<p>This line magic will restart the connection to the language
+kernel.</p>
+
+<p>Example:
+    %restart</p>
+
+<p>Note that you will lose all computed values.</p>
+
+<h2 id="run"><code class="highlighter-rouge">%run</code></h2>
+
+<p>%run [–language LANG] FILENAME - run code in filename by
+   kernel</p>
+
+<p>This magic will take the code in FILENAME and run it. The
+exact details of how the code runs are deterimined by your
+language.</p>
+
+<p>The –language LANG option will prefix the file contents with
+“%%LANG”. You may also put information in the cell which will
+appear before the contents of the file.</p>
+
+<p>Examples:
+    %run filename.ss
+    %run -l python filename.py</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%kx calysto_scheme.kernel CalystoScheme
+%run --language kx filename.ss
+%run --language "kx default" filename.ss
+</code></pre></div></div>
+
+<p>Note: not all languages may support %run.</p>
+
+<h2 id="options-9">Options:</h2>
+<p>-l –language  use the provided language name as kernel [default: None]</p>
+
+<h2 id="scheme"><code class="highlighter-rouge">%scheme</code></h2>
+
+<p>%scheme CODE - evaluate code as Scheme</p>
+
+<p>This line magic will evaluate the CODE (either expression or
+statement) as Scheme code.</p>
+
+<p>Examples:
+    %scheme (define x 42)
+    %scheme (import “math”)
+    %scheme (+ x + math.pi)</p>
+
+<h2 id="set"><code class="highlighter-rouge">%set</code></h2>
+
+<p>%set VARIABLE VALUE - set a variable in the kernel.</p>
+
+<p>This line magic is used to set a variable to a Python value.</p>
+
+<p>Examples:
+    %set x 42
+    %set x [1, 2, 3]</p>
+
+<h2 id="shell"><code class="highlighter-rouge">%shell</code></h2>
+
+<p>%shell COMMAND - run the line as a shell command</p>
+
+<p>This line command will run the COMMAND in the bash shell.</p>
+
+<p>Examples:
+    %shell ls -al
+    %shell cd</p>
+
+<p>Note: this is a persistent connection to a shell.
+ The working directory is synchronized to that of the notebook
+ before and after each call.</p>
+
+<p>You can also use “!” instead of “%shell”.</p>
+
+<h1 id="cell-magics">Cell Magics</h1>
+
+<h2 id="activity-1"><code class="highlighter-rouge">%%activity</code></h2>
+
+<p>%%activity FILENAME - make an activity from
+  a JSON structure</p>
+
+<p>This magic will construct a Python file from the cell’s
+content, a JSON structure.</p>
+
+<p>Example:
+    %%activity /home/teacher/activity1
+    {“activity”: “poll”,
+     “instructors”: [“teacher01”],
+     “results_file”: “/home/teacher/activity1.results”,
+     “items”: [{“id”: “…”,
+                “type”: “multiple choice”,
+                “question”: “…”,
+                “options”: [“…”, …]
+               }, …]
+    }</p>
+
+<p>In this example, users will load
+/home/teacher/activity1</p>
+
+<h2 id="brain"><code class="highlighter-rouge">%%brain</code></h2>
+
+<p>%%brain - run a cell as brain control code
+for a calysto.simulation.</p>
+
+<p>Requires calysto.</p>
+
+<p>Examples:
+   %%brain
+   robot.forward(1)</p>
+
+<h2 id="conversation-1"><code class="highlighter-rouge">%%conversation</code></h2>
+
+<p>%conversation ID - insert conversation by ID
+%%conversation ID - insert conversation by ID</p>
+
+<h2 id="debug"><code class="highlighter-rouge">%%debug</code></h2>
+
+<p>%%debug - step through the code expression by expression</p>
+
+<p>This cell magic will step through the code in the cell,
+if the kernel supports debugging.</p>
+
+<p>Example:
+    %%debug</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(define x 1)
+</code></pre></div></div>
+
+<h2 id="dot-1"><code class="highlighter-rouge">%%dot</code></h2>
+
+<p>%%dot - render contents of cell as Graphviz image</p>
+
+<p>This cell magic will send the cell to the browser as
+HTML.</p>
+
+<p>Example:
+    %%dot</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph A { a-&gt;b };
+</code></pre></div></div>
+
+<h2 id="file"><code class="highlighter-rouge">%%file</code></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>%%file [–append</td>
+      <td>-a] FILENAME - write contents of cell to file</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This cell magic will create or append the cell contents into/onto
+a file.</p>
+
+<p>Example:
+    %%file -a log.txt
+    This will append this line onto the file “log.txt”</p>
+
+<h2 id="options-10">Options:</h2>
+<p>-a –append    append onto an existing file [default: False]</p>
+
+<h2 id="help-1"><code class="highlighter-rouge">%%help</code></h2>
+
+<p>This is MetaKernel Python. It implements a Python interpreter.</p>
+
+<h2 id="html-1"><code class="highlighter-rouge">%%html</code></h2>
+
+<p>%%html - display contents of cell as HTML</p>
+
+<p>This cell magic will send the cell to the browser as
+HTML.</p>
+
+<p>Example:
+    %%html</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script src="..."&gt;&lt;/script&gt;
+
+&lt;div&gt;Contents of div tag&lt;/div&gt;
+</code></pre></div></div>
+
+<h2 id="javascript-1"><code class="highlighter-rouge">%%javascript</code></h2>
+
+<p>%%javascript - send contents of cell as JavaScript</p>
+
+<p>This cell magic will execute the contents of the cell as
+JavaScript in the browser.</p>
+
+<p>Example:
+    %%javascript</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>element.html("Hello this is &lt;b&gt;bold&lt;/b&gt;!")
+</code></pre></div></div>
+
+<h2 id="kx-1"><code class="highlighter-rouge">%%kx</code></h2>
+
+<p>%%kx [-k NAME] - send the cell code to the kernel.</p>
+
+<p>This cell magic will send the cell to be evaluated by
+the kernel. The kernel must have been created use the
+%%kernel magic.</p>
+
+<p>Returns the result of the execution as output.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%kernel bash
+ls -al
+</code></pre></div></div>
+
+<p>Use <code class="highlighter-rouge">%kernel MODULE CLASS [-k NAME]</code> to create a kernel.</p>
+
+<h2 id="options-11">Options:</h2>
+<p>-k –kernel_name kernel name given to use for execution [default: None]</p>
+
+<h2 id="latex-1"><code class="highlighter-rouge">%%latex</code></h2>
+
+<p>%%latex - display contents of cell as LaTeX</p>
+
+<p>This cell magic will display the TEXT in the cell as LaTeX.</p>
+
+<p>Example:
+    %%latex
+    x_1 = \dfrac{a}{b}</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x_2 = a^{n - 1}
+</code></pre></div></div>
+
+<h2 id="macro-1"><code class="highlighter-rouge">%%macro</code></h2>
+
+<p>%%macro NAME - learn a new macro</p>
+
+<p>This cell macro will learn the macro in the
+cell. The cell contents are just commands (macros
+or code in the kernel language).</p>
+
+<p>Example:
+    %%macro test
+    print “Ok!”</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%macro test
+Ok!
+</code></pre></div></div>
+
+<h2 id="pipe"><code class="highlighter-rouge">%%pipe</code></h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td>%%pipe FUNCTION1</td>
+      <td>FUNCTION2 …</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>The pipe cell will “pipe” the contents of a cell
+through a series of function calls. All of the
+functions must be defined in the language, and
+the kernel must support the <code class="highlighter-rouge">do_function_direct</code>
+method.</p>
+
+<p>Example:
+    %%pipe f1 | f2 | f3
+    CELL CONTENTS</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is the same as issuing:
+
+f3(f2(f1("CELL CONTENTS")))
+</code></pre></div></div>
+
+<h2 id="processing"><code class="highlighter-rouge">%%processing</code></h2>
+
+<p>%%processing - run the cell in the language Processing</p>
+
+<p>This cell magic will execute the contents of the cell as a
+Processing program. This uses the Java-based Processing
+language.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%processing
+setup() {
+}
+draw() {
+}
+</code></pre></div></div>
+
+<h2 id="px-1"><code class="highlighter-rouge">%%px</code></h2>
+
+<p>%%px - send cell to the cluster.</p>
+
+<p>Example:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%px
+(define x 42)
+</code></pre></div></div>
+
+<p>Use %parallel to initialize the cluster.</p>
+
+<h2 id="options-12">Options:</h2>
+<p>-e –evaluate  evaluate code in the current kernel, too. The current kernel should be of the same language as the cluster. [default: False]
+-k –kernel_name kernel name given to use for execution [default: None]</p>
+
+<h2 id="python-1"><code class="highlighter-rouge">%%python</code></h2>
+
+<p>%%python - evaluate contents of cell as Python</p>
+
+<p>This cell magic will evaluate the cell (either expression or
+statement) as Python code.</p>
+
+<p>Unlike IPython’s Python, this does not return the last expression.
+To do that, you need to assign the last expression to the special
+variable “retval”.</p>
+
+<p>The -e or –eval_output flag signals that the retval value expression
+will be used as code for the cell to be evaluated by the host
+language.</p>
+
+<p>Note that the version of Python is that of the notebook server.</p>
+
+<p>Examples:
+    %%python
+    x = 42</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%python
+import math
+retval = x + math.pi
+
+%%python -e
+retval = "'(this is code in the kernel language)"
+
+%%python -e
+"'(this is code in the kernel language)"
+</code></pre></div></div>
+
+<h2 id="options-13">Options:</h2>
+<p>-e –eval_output Use the retval value from the Python cell as code in the kernel language. [default: False]</p>
+
+<h2 id="scheme-1"><code class="highlighter-rouge">%%scheme</code></h2>
+
+<p>%%scheme - evaluate contents of cell as Scheme</p>
+
+<p>This cell magic will evaluate the cell (either expression or
+statement) as Scheme code.</p>
+
+<p>The -e or –eval_output flag signals that the retval value expression
+will be used as code for the cell to be evaluated by the host
+language.</p>
+
+<p>Examples:
+    %%scheme
+    (define x 42)</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%scheme
+(import "math")
+(define retval (+ x math.pi))
+
+%%scheme -e
+(define retval "this = code")
+
+%%scheme -e
+"this = code"
+</code></pre></div></div>
+
+<h2 id="options-14">Options:</h2>
+<p>-e –eval_output Use the retval value from the Scheme cell as code in the kernel language. [default: False]</p>
+
+<h2 id="shell-1"><code class="highlighter-rouge">%%shell</code></h2>
+
+<p>%%shell - run the contents of the cell as shell commands</p>
+
+<p>This shell command will run the cell contents in the bash shell.</p>
+
+<p>Example:
+     %%shell
+        cd ..
+        ls -al</p>
+
+<p>Note: this is a persistent connection to a shell.
+  The working directory is synchronized to that of the notebook
+  before and after each call.</p>
+
+<p>You can also use “!!” instead of “%%shell”.</p>
+
+<h2 id="show"><code class="highlighter-rouge">%%show</code></h2>
+
+<p>%%show [-o]- show cell contents or results in system pager</p>
+
+<p>This cell magic will put the contents or results of the cell
+into the system pager.</p>
+
+<p>Examples:
+    %%show
+    This information will appear in the pager.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%%show --output
+retval = 54 * 54
+</code></pre></div></div>
+
+<h2 id="options-15">Options:</h2>
+<p>-o –output    rather than showing the contents, show the results [default: False]</p>
+
+<h2 id="time"><code class="highlighter-rouge">%%time</code></h2>
+
+<p>%%time - show time to run cell</p>
+
+<p>Put this magic at the top of a cell and the amount of time
+taken to execute the code will be displayed before the output.</p>
+
+<p>Example:
+    %%time
+    [code for your language goes here!]</p>
+
+<p>This just reports real time taken to execute a program. This
+may fluctuate with number of users, system, load, etc.</p>
+
+<h2 id="tutor"><code class="highlighter-rouge">%%tutor</code></h2>
+
+<p>%%tutor [–language=LANGUAGE] - show cell with
+Online Python Tutor.</p>
+
+<p>Defaults to use the language of the current kernel.
+‘python’ is an alias for ‘python3’.</p>
+
+<p>Examples:
+   %%tutor -l python3
+   a = 1
+   b = 1
+   a + b</p>
+
+<p>[You will see an iframe with the pythontutor.com page
+   including the code above.]</p>
+
+<p>%%tutor –language=java</p>
+
+<p>public class Test {
+       public Test() {
+       }
+       public static void main(String[] args) {
+           int x = 1;
+           System.out.println(“Hi”);
+       }
+   }</p>
+
+<h2 id="options-16">Options:</h2>
+<p>-l –language  Possible languages to be displayed within the iframe. Possible values are: python, python2, python3, java, javascript</p>
 </div>
 
-  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-06T03:22:10+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
+  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-07T12:59:56+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
     <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
       <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
         <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
       </a>
     </p>
-  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/jekyll-exercise">jekyll 命令练习</a></div><div class="next"><span>下篇</span><a href="/magic-reference">Line Magics</a></div></div></div>
+  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/auto-update-python-module">自动更新python模块脚本</a></div></div></div>
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
