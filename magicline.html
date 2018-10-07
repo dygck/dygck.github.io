@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>魔法函数测试 - 在风陵渡口学coding!</title>
 
-<meta name="description" content="学习至上!
-">
-<link rel="canonical" href="https://dygck.github.io/"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<meta name="description" content="单元格魔法，统计代码执行时间！%%timeformat shorts=0;for i=1:1000s=s+i;enddisp(s)      500500Time: 0.014966011047363281 seconds.列出可用魔法%lsmagicAvailable line magics:%activity...">
+<link rel="canonical" href="https://dygck.github.io/magicline"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -248,7 +247,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header"><header class="header"><div class="main">
@@ -270,33 +269,13 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside js-col-aside"></div>
+              <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/magicline">魔法函数测试</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">单元格魔法，统计代码执行时间！
-
-%%time
-format short
-s=0;
-for i=1:1000
-s=s+i;
-end
-disp(s)
-
-
-      500500
-
-Time: 0.014966011047363281 seconds.
-
-
-列出可用魔法
-
-%lsmagic
-
-
-Available line magics:
-%activity  %cd  %connect_info  %conversation  %dot  %download  %edit  %get  %help  %html  %include  %install  %install_magic  %javascript  %jigsaw  %kernel  %kx  %latex  %load  ...</div><p><a href="/magicline">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>魔法函数测试</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-17-magicline.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="魔法函数测试"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=python">python</a>
             </li><li>
@@ -313,203 +292,169 @@ Available line magics:
                 href="/archive.html?tag=jupyter">jupyter</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
             </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T23:59:58+08:00">
-    <meta itemprop="keywords" content="python,matlab,shell,javascript,jupyter"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/magic-reference">Line Magics</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">%activity
+    <meta itemprop="keywords" content="python,matlab,shell,javascript,jupyter"><div class="js-article-content"><div class="layout--article">
 
-%activity FILENAME - run a widget-based activity
-  (poll, classroom response, clicker-like activity)
+  <div class="article__content" itemprop="articleBody"><h2 id="单元格魔法统计代码执行时间">单元格魔法，统计代码执行时间！</h2>
 
-This magic will load the JSON in the filename.
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%time</span>
+<span class="nb">format</span> <span class="n">short</span>
+<span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span> <span class="nb">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
+<span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="nb">i</span><span class="p">;</span>
+<span class="k">end</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
 
-Examples:
-    %activity /home/teacher/activity1
-    %activity /home/teacher/activity1 new
-    %activity /home/teacher/activity1 edit
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      500500
 
-%cd
+Time: 0.014966011047363281 seconds.
+</code></pre></div></div>
 
-%cd PATH - change current directory of session
-...</div><p><a href="/magic-reference">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T12:59:56+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/auto-update-python-module">自动更新python模块脚本</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">首先获取当前有最新版本的所有Python库,然后切割得到库的名字,遍历所有库名安装更新.
+<h2 id="列出可用魔法">列出可用魔法</h2>
 
-源码
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%lsmagic</span>
+</code></pre></div></div>
 
-#!/bin/bash
-for line in `pip list --outdated|cut -d " " -f 1|sed 1,2d`
-do
- sudo pip install --upgrade  $line
-done</div><p><a href="/auto-update-python-module">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月06日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-06T03:22:10+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/jekyll-exercise">jekyll 命令练习</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">jekyll 命令行参数
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Available line magics:
+%activity  %cd  %connect_info  %conversation  %dot  %download  %edit  %get  %help  %html  %include  %install  %install_magic  %javascript  %jigsaw  %kernel  %kx  %latex  %load  %ls  %lsmagic  %macro  %magic  %matplotlib  %parallel  %plot  %pmap  %px  %python  %reload_magics  %restart  %run  %scheme  %set  %shell
 
+Available cell magics:
+%%activity  %%brain  %%conversation  %%debug  %%dot  %%file  %%help  %%html  %%javascript  %%kx  %%latex  %%macro  %%pipe  %%processing  %%px  %%python  %%scheme  %%shell  %%show  %%time  %%tutor
+</code></pre></div></div>
 
-  jekyll new   创建文件基本框架
-  jekyll bulid或jekyll b path 输出网页文件,默认输出到./_site文件下面
-  jekeyll serve或jekyll s path在本地调试编写的网页。
-  jekyll doctor诊断问题
-  jekeyll new-theme themename创建一个新的主题框架
-  jekyll clean移除生成的网页和元数据
-  jekyll helpjekyll 提供的帮助。如:jekyll help build.
+<h2 id="执行shell脚本">执行shell脚本。</h2>
 
+<ol>
+  <li>单行shell脚本 （%shell or !）</li>
+</ol>
 
-全局配置
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%shell pwd</span>
+</code></pre></div></div>
 
-可以使用命令行和修改_config.yml文件的方式设置。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/fujie/Desktop
+</code></pre></div></div>
 
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">!</span><span class="nb">pwd</span>
+</code></pre></div></div>
 
-  
-    
-      设置选项
-      配置文件方法
-      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/sublime-settings-notes">sublime_text 配置技巧</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/fujie/Desktop
+</code></pre></div></div>
 
-sublimetext的程序菜单选项分别由一下文件组成。
-+ Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。)
-+ Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名)
-+ Context.sublime-menu (文本编辑窗口右键菜单)
+<ol>
+  <li>单元shell脚本 (%%shell or !!)</li>
+</ol>
 
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%shell</span>
+<span class="nb">diff</span> <span class="n">req</span> <span class="n">pip</span>
+</code></pre></div></div>
 
-修改首选项插件设置行为，使打开设置为默认和用户分屏效果.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>56a57
+&gt; pip
+85a87
+&gt; setuptools
+</code></pre></div></div>
 
+<h2 id="执行javascript">执行javascript</h2>
 
-  json格式
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="nx">javascript</span>
+<span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nx">alert</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+</code></pre></div></div>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
+</code></pre></div></div>
 
-{
-    "command": "edit_settings",
-    "args":
-    {
-        // 根据插件的名字来修改下面2个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。...</div><p><a href="/sublime-settings-notes">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月02日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-02T05:30:05+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的
+<h2 id="运行python">运行python</h2>
 
-Measure-Object
-Description
-Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum
-mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)
-Alias
-measure
-Examples
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%python</span>
+<span class="nb">import</span> <span class="n">os</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">())</span>
+</code></pre></div></div>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>posix.uname_result(sysname='Darwin', nodename='Mac.local', release='18.0.0', version='Darwin Kernel Version 18.0.0: Wed Aug 22 20:13:40 PDT 2018; root:xnu-4903.201.2~1/RELEASE_X86_64', machine='x86_64')
+</code></pre></div></div>
 
-  统计某个文件的行数、字符数、文件数。
-    # 查看win10系统hosts文件夹的行号，单词数，字符数。
-$hosts ; Get-Content $hosts
-Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/PowerShell-Object-commands">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月29日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-29T07:56:28+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/mean">平均数</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">关于各种平均数的描述!
+<h2 id="下载文件">下载文件</h2>
 
-简单平均数(mean)
-求和除个数
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%download  "https://dygck.github.io/assets/images/sublime_keybind.gif"  -f  ~/Desktop/a.gif</span>
+</code></pre></div></div>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0;31m&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:841)&gt;
+[0m
+</code></pre></div></div>
 
-  公式
+<h2 id="编辑文件">编辑文件</h2>
 
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%edit pip</span>
+</code></pre></div></div>
 
-
-
-
-  例子
-
-
-省略
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%file pip</span>
+<span class="n">appnope</span>
+<span class="n">asn1crypto</span>
+<span class="n">astroid</span>
+<span class="n">attrs</span>
+<span class="n">Automat</span>
+<span class="n">autopep8</span>
+<span class="n">backcall</span>
+<span class="n">beautifulsoup4</span>
+<span class="n">bleach</span>
+<span class="n">bs4</span>
+<span class="n">certifi</span>
+<span class="n">cffi</span>
+<span class="n">chardet</span>
+<span class="n">constantly</span>
+<span class="n">cryptography</span>
 
 
-  函数
 
 
-mean()
 
+</code></pre></div></div>
 
-截尾平均数(trimmed mean)
-将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created file '/Users/fujie/Desktop/pip'.
+</code></pre></div></div>
 
-trimmean(data,precent,flag)
+<h2 id="使用html">使用html</h2>
 
-flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。
-有round,floor,weighted.
+<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%html  &lt;p style="color:#121276"&gt;This is underlined!&lt;/p&gt;</span>
+</code></pre></div></div>
 
-几何平均数(geometric mean)
-通常是增长率之内的求平均数的方法
+<p style="color:#121276">This is underlined!</p>
 
+</div>
 
-  
-    公式
+  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-07T23:59:58+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/magic-reference">Line Magics</a></div></div></div>
 
-    
-  
-  
-    例子
-  
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
 
-
-假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算:
-	
-
-
-  
-  ...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月27日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-27T07:45:10+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
-
-分号
-分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句.
-
-短路与
-
-event A &amp;&amp; event B
-#只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序.
-#只有A成功了,B才可以运行.A不成功就停止运行.
-
-
-短路或
-
-envent A　|| envent B
-#事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。
-#B应该属于一个备选方案.
-
-
-命令替换符
-将一条命令的输出,作为参数或者选项插入另一条命令
-
-cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令....</div><p><a href="/operators">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 10 篇文章，2 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
-            <i class="fas fa-angle-left"></i>
-          </div></li><li>
-              <div class="button button--primary button--circle focus"><span>1</span></div>
-            </li><li>
-                <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-              </li><li><a class="button button--secondary button--circle" href="/page2">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/</script>
-
-</div></article>
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();</script></div></article>
               </div>
             </div></div></div>
 
@@ -977,7 +922,67 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   });
 })();/*(function () {
 
-})();*/</script>
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script>
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];

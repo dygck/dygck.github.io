@@ -273,6 +273,42 @@
               <div class="col-aside js-col-aside"></div>
 
               <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/same-random-number-generate">生成重复的随机数</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">使用python和matlab生成重复的随机数,关键在于种子生成器.
+
+使用rng函数
+
+&gt;&gt; rng(1)
+&gt;&gt; rand
+
+ans =
+
+	0.4170
+
+&gt;&gt; rand
+
+ans =
+
+	0.7203
+
+&gt;&gt; rng(1)
+&gt;&gt; rand
+
+ans =
+
+	0.4170
+% 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可.
+% 同时要求设定了种子之后,只有接下来的一次有效
+
+使用RandomState函数
+In [1]: import numpy as np
+
+In [2]: s1=np.random.RandomState(1)
+
+In [3]: s1.randn(5)
+Out...</div><p><a href="/same-random-number-generate">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/softlink-and-hardlink">链接</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)
 
@@ -293,7 +329,7 @@ ln 原始文件地址 建立的链接地址
 硬链接就是原文件...</div><p><a href="/softlink-and-hardlink">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月03日</span>
             </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-03T00:00:00+08:00"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 9 篇文章，2 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 10 篇文章，2 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>
