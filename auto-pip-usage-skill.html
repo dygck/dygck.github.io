@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>主页 - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>pip使用技巧 - 在风陵渡口学coding!</title>
 
-<meta name="description" content="别点我!
-">
-<link rel="canonical" href="https://dygck.github.io/"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<meta name="description" content="本文列出一些安装更新python模块的技巧。比如自动更新所有Python模块。自动更新所有Python模块。      shell版本     #!/bin/bash for line in `pip list --outdated|cut -d " " -f 1|sed 1,2d` do  sudo pip i...">
+<link rel="canonical" href="https://dygck.github.io/auto-pip-usage-skill"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
@@ -252,7 +251,7 @@
 </script></head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner">
         <div></div><div class="page__header"><header class="header"><div class="main">
@@ -351,272 +350,126 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside js-col-aside"></div>
+              <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><div class="article__info clearfix"><ul class="right-col menu"></ul></div><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/magicline">魔法函数测试</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">单元格魔法，统计代码执行时间！
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>pip使用技巧</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="在 Github 上修改"
+            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-06-auto-pip-usage-skill.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="pip使用技巧"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00"><div class="js-article-content"><div class="layout--article">
 
-%%time
-format short
-s=0;
-for i=1:1000
-s=s+i;
-end
-disp(s)
+  <div class="article__content" itemprop="articleBody"><p>本文列出一些安装更新python模块的技巧。比如自动更新所有Python模块。</p>
 
+<h2 id="自动更新所有python模块">自动更新所有Python模块。</h2>
 
-      500500
+<ol>
+  <li>
+    <p>shell版本</p>
 
-Time: 0.014966011047363281 seconds.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c">#!/bin/bash</span>
+ <span class="k">for </span>line <span class="k">in</span> <span class="sb">`</span>pip list <span class="nt">--outdated</span>|cut <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f</span> 1|sed 1,2d<span class="sb">`</span>
+ <span class="k">do
+  </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span>  <span class="nv">$line</span>
+ <span class="k">done</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>powershell版本</p>
 
-
-列出可用魔法
-
-%lsmagic
-
-
-Available line magics:
-%activity  %cd  %connect_info  %conversation  %dot  %download  %edit  %get  %help  %html  %include  %install  %install_magic  %javascript  %jigsaw  %kernel  %kx  %latex  %load  ...</div><p><a href="/magicline">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python">python</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=matlab">matlab</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=shell">shell</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=javascript">javascript</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=jupyter">jupyter</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T23:59:58+08:00">
-    <meta itemprop="keywords" content="python,matlab,shell,javascript,jupyter"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/magic-reference">Line Magics</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">%activity
-
-%activity FILENAME - run a widget-based activity
-  (poll, classroom response, clicker-like activity)
-
-This magic will load the JSON in the filename.
-
-Examples:
-    %activity /home/teacher/activity1
-    %activity /home/teacher/activity1 new
-    %activity /home/teacher/activity1 edit
-
-%cd
-
-%cd PATH - change current directory of session
-...</div><p><a href="/magic-reference">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=jupyter">jupyter</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=lingmagic">lingmagic</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T12:59:56+08:00">
-    <meta itemprop="keywords" content="jupyter,lingmagic"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/auto-pip-usage-skill">pip使用技巧</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">本文列出一些安装更新python模块的技巧。比如自动更新所有Python模块。
-
-自动更新所有Python模块。
-
-
-  
-    shell版本
-
-     #!/bin/bash
- for line in `pip list --outdated|cut -d " " -f 1|sed 1,2d`
- do
-  sudo pip install --upgrade  $line
- done
-    
-  
-  
-    powershell版本
-
-     # 当只有一个模块需要更新会报错！
- (pip list -o)[2..1000]|foreach ($_.split(" ")[0])|foreach {pip install --upgrade $_}
+    <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1"># 当只有一个模块需要更新会报错！</span>
+ <span class="o">(</span>pip list -o<span class="o">)[</span>2..1000]|foreach <span class="o">(</span><span class="nv">$_</span>.split<span class="o">(</span><span class="s2">" "</span><span class="o">)[</span>0]<span class="o">)</span>|foreach <span class="o">{</span>pip install --upgrade <span class="nv">$_</span><span class="o">}</span>
 	
-    
-  
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-...</div><p><a href="/auto-pip-usage-skill">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/jekyll-exercise">jekyll 命令练习</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">jekyll 命令行参数
+<h2 id="备份本地安装了的模块文件清单并使用清单批量安装模块">备份本地安装了的模块文件清单，并使用清单批量安装模块。</h2>
 
+<ol>
+  <li>
+    <p>备份本地安装清单</p>
 
-  jekyll new   创建文件基本框架
-  jekyll bulid或jekyll b path 输出网页文件,默认输出到./_site文件下面
-  jekeyll serve或jekyll s path在本地调试编写的网页。
-  jekyll doctor诊断问题
-  jekeyll new-theme themename创建一个新的主题框架
-  jekyll clean移除生成的网页和元数据
-  jekyll helpjekyll 提供的帮助。如:jekyll help build.
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pip freeze <span class="o">&gt;</span> requirements.txt
+</code></pre></div>    </div>
 
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nv">appnope</span><span class="o">==</span>0.1.0
+ <span class="nv">asn1crypto</span><span class="o">==</span>0.24.0
+ <span class="nv">astroid</span><span class="o">==</span>2.0.4
+ <span class="nv">attrs</span><span class="o">==</span>18.2.0
+ <span class="nv">Automat</span><span class="o">==</span>0.7.0
+ <span class="nv">autopep8</span><span class="o">==</span>1.4
+ <span class="nv">backcall</span><span class="o">==</span>0.1.0
+ <span class="nv">beautifulsoup4</span><span class="o">==</span>4.6.3
+ <span class="nv">bleach</span><span class="o">==</span>3.0.0
+ <span class="nv">bs4</span><span class="o">==</span>0.0.1
+ <span class="nv">certifi</span><span class="o">==</span>2018.8.24
+ <span class="nv">cffi</span><span class="o">==</span>1.11.5
+ <span class="nv">chardet</span><span class="o">==</span>3.0.4
+ <span class="nv">constantly</span><span class="o">==</span>15.1.0
+ <span class="nv">cryptography</span><span class="o">==</span>2.3.1
+ <span class="nv">cssselect</span><span class="o">==</span>1.0.3
+ <span class="nv">decorator</span><span class="o">==</span>4.3.0
+ <span class="nv">defusedxml</span><span class="o">==</span>0.5.0
+ dict-cli<span class="o">==</span>1.3.4
+ <span class="nv">docopt</span><span class="o">==</span>0.6.2
+ <span class="nv">entrypoints</span><span class="o">==</span>0.2.3
+ <span class="nv">future</span><span class="o">==</span>0.16.0
+ <span class="nv">html5lib</span><span class="o">==</span>1.0.1
+ <span class="nv">hyperlink</span><span class="o">==</span>18.0.0
+ <span class="nv">idna</span><span class="o">==</span>2.7
+ <span class="nv">incremental</span><span class="o">==</span>17.5.0
+ <span class="nv">ipykernel</span><span class="o">==</span>5.0.0
+ <span class="nv">ipyparallel</span><span class="o">==</span>6.2.2
+ <span class="nv">ipython</span><span class="o">==</span>7.0.1
+ ipython-genutils<span class="o">==</span>0.2.0
+ <span class="nv">ipywidgets</span><span class="o">==</span>7.4.2
 
-全局配置
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>通过requirements安装所有库.</p>
 
-可以使用命令行和修改_config.yml文件的方式设置。
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pip install <span class="nt">-r</span> requirements.txt
+	
+</code></pre></div>    </div>
+  </li>
+</ol>
 
+</div>
 
-  
-    
-      设置选项
-      配置文件方法
-      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/sublime-settings-notes">sublime_text 配置技巧</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。
+  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-05T19:22:10+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
+    <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/jekyll-exercise">jekyll 命令练习</a></div><div class="next"><span>下篇</span><a href="/magic-reference">Line Magics</a></div></div></div>
 
-sublimetext的程序菜单选项分别由一下文件组成。
-+ Main.sublime-menu (也就是主菜单选项，通过修改这个文件可以修改主菜单的选项名等。)
-+ Side Bar.sublime-menu (侧边栏右键菜单，同样可以修改选项名)
-+ Context.sublime-menu (文本编辑窗口右键菜单)
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
 
-
-修改首选项插件设置行为，使打开设置为默认和用户分屏效果.
-
-
-  json格式
-
-
-{
-    "command": "edit_settings",
-    "args":
-    {
-        // 根据插件的名字来修改下面2个路径的名字，一个是插件默认设置的安装位置，一个是用户安装位置。...</div><p><a href="/sublime-settings-notes">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=sublimetext">sublimetext</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月02日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-02T05:30:05+08:00">
-    <meta itemprop="keywords" content="sublimetext"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的
-
-Measure-Object
-Description
-Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum
-mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)
-Alias
-measure
-Examples
-
-
-  统计某个文件的行数、字符数、文件数。
-    # 查看win10系统hosts文件夹的行号，单词数，字符数。
-$hosts ; Get-Content $hosts
-Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/PowerShell-Object-commands">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=PowerShell">PowerShell</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月28日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-28T23:56:28+08:00">
-    <meta itemprop="keywords" content="PowerShell"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/mean">Mean</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">layout      : archive
-title       : 各种形式的平均数
-date        : 2018-10-08 11:57:30 +0800
-categories  : []
-classes   : wide
-permalink :
-tags        : [statistics,matlab]
-teaser      :
-header      :
-mathjax       : true
-——
-
-关于各种平均数的描述!
-
-简单平均数(mean)
-求和除个数
-
-
-  公式
-
-
-
-
-
-  例子
-
-
-省略
-
-
-  函数
-
-
-mean()
-
-
-截尾平均数(trimmed mean)
-将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
-
-trim...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月26日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-26T00:00:00+08:00"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
-
-分号
-分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句.
-
-短路与
-
-event A &amp;&amp; event B
-#只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序.
-#只有A成功了,B才可以运行.A不成功就停止运行.
-
-
-短路或
-
-envent A　|| envent B
-#事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。
-#B应该属于一个备选方案.
-
-
-命令替换符
-将一条命令的输出,作为参数或者选项插入另一条命令
-
-cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令....</div><p><a href="/operators">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=shell">shell</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=linux">linux</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月23日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-23T00:00:00+08:00">
-    <meta itemprop="keywords" content="shell,linux"></div>
-      </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 10 篇文章，2 页。</p>
-    <div class="pagination__menu">
-      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
-            <i class="fas fa-angle-left"></i>
-          </div></li><li>
-              <div class="button button--primary button--circle focus"><span>1</span></div>
-            </li><li>
-                <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
-              </li><li><a class="button button--secondary button--circle" href="/page2">
-            <i class="fas fa-angle-right"></i>
-          </a></li></ul>
-    </div>
-  </div></div>
-<script>/*(function () {
-
-})();*/</script>
-
-</div></article>
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();</script></div></article>
               </div>
             </div></div></div>
 
@@ -1084,7 +937,67 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
   });
 })();/*(function () {
 
-})();*/</script>
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script>
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];
