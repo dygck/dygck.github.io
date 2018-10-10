@@ -356,8 +356,15 @@
           <a class="edit-on-github"
             title="在 Github 上修改"
             href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-06-auto-pip-usage-skill.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="pip使用技巧"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00"><div class="js-article-content"><div class="layout--article">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="pip使用技巧"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=python">python</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=powershell">powershell</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00">
+    <meta itemprop="keywords" content="python,powershell"><div class="js-article-content"><div class="layout--article">
 
   <div class="article__content" itemprop="articleBody"><p>本文列出一些安装更新python模块的技巧。比如自动更新所有Python模块。</p>
 
@@ -379,7 +386,7 @@
 
     <div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1"># 当只有一个模块需要更新会报错！</span>
  <span class="o">(</span>pip list -o<span class="o">)[</span>2..1000]|foreach <span class="o">(</span><span class="nv">$_</span>.split<span class="o">(</span><span class="s2">" "</span><span class="o">)[</span>0]<span class="o">)</span>|foreach <span class="o">{</span>pip install --upgrade <span class="nv">$_</span><span class="o">}</span>
-	
+
 </code></pre></div>    </div>
   </li>
 </ol>
@@ -431,7 +438,7 @@
     <p>通过requirements安装所有库.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> pip install <span class="nt">-r</span> requirements.txt
-	
+
 </code></pre></div>    </div>
   </li>
 </ol>

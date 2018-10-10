@@ -1,9 +1,9 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Mean - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>各种形式的平均数 - 在风陵渡口学coding!</title>
 
-<meta name="description" content="layout      : archivetitle       : 各种形式的平均数date        : 2018-10-08 11:57:30 +0800categories  : []classes   : widepermalink :tags        : [statistics,matlab...">
+<meta name="description" content="关于各种平均数的描述!简单平均数(mean)求和除个数  公式  例子省略  函数mean()截尾平均数(trimmed mean)将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。trimmean(data,precent,flag)flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。...">
 <link rel="canonical" href="https://dygck.github.io/mean"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon.png">
@@ -352,27 +352,21 @@
 
               <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Mean</h1></header><span class="split-space">&nbsp;</span>
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>各种形式的平均数</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
             href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-09-26-mean.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="Mean"><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月26日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-26T00:00:00+08:00"><div class="js-article-content"><div class="layout--article">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="各种形式的平均数"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=statistics">statistics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=matlab">matlab</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-08T11:57:30+08:00">
+    <meta itemprop="keywords" content="statistics,matlab"><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><hr />
-<h1 id="layout-------archive">layout      : archive</h1>
-<p>title       : 各种形式的平均数
-date        : 2018-10-08 11:57:30 +0800</p>
-<h1 id="categories---">categories  : []</h1>
-<h1 id="classes----wide">classes   : wide</h1>
-<h1 id="permalink-">permalink :</h1>
-<p>tags        : [statistics,matlab]</p>
-<h1 id="teaser------">teaser      :</h1>
-<h1 id="header------">header      :</h1>
-<p>mathjax       : true
-——</p>
-
-<p>关于各种平均数的描述!</p>
+  <div class="article__content" itemprop="articleBody"><p>关于各种平均数的描述!</p>
 
 <h2 id="简单平均数mean">简单平均数(mean)</h2>
 <p>求和除个数</p>
@@ -458,13 +452,13 @@ date        : 2018-10-08 11:57:30 +0800</p>
 
 </div>
 
-  <footer class="article__footer"><meta itemprop="dateModified" content="2018-09-26T00:00:00+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
+  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-08T11:57:30+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
     <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
       <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
         <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
       </a>
     </p>
-  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/operators">操作符</a></div><div class="next"><span>下篇</span><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></div></div></div>
+  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/magicline">魔法函数测试</a></div></div></div>
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -1017,7 +1011,12 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 
     window.pageAsideAffix = affix;
   });
-})();</script>
+})();</script><script type="text/x-mathjax-config">
+	var _config = { tex2jax: {
+		inlineMath: [['$','$'], ['\\(','\\)']]
+	}};_config.TeX = { equationNumbers: { autoNumber: "all" } };MathJax.Hub.Config(_config);
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];

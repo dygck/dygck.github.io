@@ -354,6 +354,68 @@
               <div class="col-aside js-col-aside"></div>
 
               <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><div class="article__info clearfix"><ul class="right-col menu"></ul></div><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/mean">各种形式的平均数</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">关于各种平均数的描述!
+
+简单平均数(mean)
+求和除个数
+
+
+  公式
+
+
+
+
+
+  例子
+
+
+省略
+
+
+  函数
+
+
+mean()
+
+
+截尾平均数(trimmed mean)
+将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
+
+trimmean(data,precent,flag)
+
+flag作用是当出现截取百分比的个数不是整数的时候，使用的方法。
+有round,floor,weighted.
+
+几何平均数(geometric mean)
+通常是增长率之内的求平均数的方法
+
+
+  
+    公式
+
+    
+  
+  
+    例子
+  
+
+
+假设某超市四年销售增长率分别为,10%,20%,15%,25%,则年平均增长率应该使用几何平均数计算:
+	
+
+
+  
+  ...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=statistics">statistics</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=matlab">matlab</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月08日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-08T11:57:30+08:00">
+    <meta itemprop="keywords" content="statistics,matlab"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/magicline">魔法函数测试</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">单元格魔法，统计代码执行时间！
 
@@ -443,12 +505,20 @@ Examples:
 
      # 当只有一个模块需要更新会报错！
  (pip list -o)[2..1000]|foreach ($_.split(" ")[0])|foreach {pip install --upgrade $_}
-	
+
     
   
 
-...</div><p><a href="/auto-pip-usage-skill">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00"></div>
+
+...</div><p><a href="/auto-pip-usage-skill">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=python">python</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=powershell">powershell</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月05日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-05T19:22:10+08:00">
+    <meta itemprop="keywords" content="python,powershell"></div>
       </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/jekyll-exercise">jekyll 命令练习</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">jekyll 命令行参数
@@ -472,8 +542,12 @@ Examples:
     
       设置选项
       配置文件方法
-      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00"></div>
+      命令行...</div><p><a href="/jekyll-exercise">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=jekyll">jekyll</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月03日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-03T00:00:00+08:00">
+    <meta itemprop="keywords" content="jekyll"></div>
       </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/sublime-settings-notes">sublime_text 配置技巧</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">这里记录一些有关sublimetxt使用的一些技巧，做个备忘。
@@ -522,49 +596,6 @@ Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月28日</span>
             </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-28T23:56:28+08:00">
     <meta itemprop="keywords" content="PowerShell"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><h2 itemprop="headline" class="item__header"><a href="/mean">Mean</a></h2></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">layout      : archive
-title       : 各种形式的平均数
-date        : 2018-10-08 11:57:30 +0800
-categories  : []
-classes   : wide
-permalink :
-tags        : [statistics,matlab]
-teaser      :
-header      :
-mathjax       : true
-——
-
-关于各种平均数的描述!
-
-简单平均数(mean)
-求和除个数
-
-
-  公式
-
-
-
-
-
-  例子
-
-
-省略
-
-
-  函数
-
-
-mean()
-
-
-截尾平均数(trimmed mean)
-将一组数据中部分异常值去点之后计算平均数通常是根据百分比来去除。
-
-trim...</div><p><a href="/mean">阅读更多</a></p></div><div class="article__info clearfix"><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月26日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-26T00:00:00+08:00"></div>
       </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
