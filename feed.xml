@@ -1,5 +1,256 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://dygck.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dygck.github.io/" rel="alternate" type="text/html" hreflang="zh" /><updated>2018-10-10T13:30:54+08:00</updated><id>https://dygck.github.io/</id><title type="html">在风陵渡口学coding!</title><subtitle>别点我!
-</subtitle><author><name>Jeff</name><email>fj1945@live.cn</email></author><entry><title type="html">各种形式的平均数</title><link href="https://dygck.github.io/mean" rel="alternate" type="text/html" title="各种形式的平均数" /><published>2018-10-08T11:57:30+08:00</published><updated>2018-10-08T11:57:30+08:00</updated><id>https://dygck.github.io/mean</id><content type="html" xml:base="https://dygck.github.io/mean">&lt;p&gt;关于各种平均数的描述!&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://dygck.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dygck.github.io/" rel="alternate" type="text/html" hreflang="zh" /><updated>2018-10-11T21:10:52+08:00</updated><id>https://dygck.github.io/</id><title type="html">在风陵渡口学coding!</title><subtitle>别点我!
+</subtitle><author><name>Jeff</name><email>fj1945@live.cn</email></author><entry><title type="html">Python维基百科查询库使用</title><link href="https://dygck.github.io/wikipedia" rel="alternate" type="text/html" title="Python维基百科查询库使用" /><published>2018-10-11T21:06:40+08:00</published><updated>2018-10-11T21:06:40+08:00</updated><id>https://dygck.github.io/wikipedia</id><content type="html" xml:base="https://dygck.github.io/wikipedia">&lt;h2 id=&quot;设置代理和语言&quot;&gt;设置代理和语言&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/local/bin/python3&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# from sys import argv&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;wikipedia&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wiki&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# from os import environ&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# import pprint&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# set proxy and change language&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http_proxy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://127.0.0.1:1087&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;environ&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https_proxy&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;https://127.0.0.1:1087&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;wiki&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_lang&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zh&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;wikipedia-search-提供搜索建议&quot;&gt;wikipedia .search (提供搜索建议)&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;wiki&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;search&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;指南车&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 第2个参数搜索建议数量，默认为10.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['指南车',
+ '高堂隆',
+ '指南针',
+ '张衡',
+ '北京市',
+ '王振鐸',
+ '维基导游',
+ '记里鼓车',
+ '湖北广播电视台',
+ '上海市',
+ '重庆市',
+ '新加坡',
+ '消防員',
+ '俄罗斯',
+ '印度']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;wikipediasummary-获得词条的概述&quot;&gt;wikipedia.summary (获得词条的概述)&lt;/h2&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wiki&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;象棋&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#摘要&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;象棋是中國大陸、台灣、越南、琉球地區所流行的傳統的2人對弈棋類遊戲。与国际象棋及围棋并列世界三大棋类之一。類似的有朝鮮將棋、日本將棋。中國大陸稱「Chess」為「国际象棋」，以此作為區別，又稱中國象棋，主要流行于全球華人、越南人及琉球人社區。是首屆世界智力運動會的正式比賽項目之一。
+
+
+== 歷史 ==
+
+
+=== 詞義演變 ===
+象棋、象戲，在中文有多種含意：從古到今可指六博、彈棋、圍棋、雙陸、象徵的遊戲、中國象棋簡稱、各種象棋類遊戲。
+
+象棋一詞最早出現在戰國，指象牙作的棋子，亦可指象徵猛禽獵魚之戲的六博。因六博棋子有其他材質，也有人認為象棋就是表示六博是象徵的遊戲。《楚辭·招魂》：「菎蔽象棋，有六博些。」王逸注：「以菎蔽作箸，象牙為棋。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;wikipediapagekeyword获得页面的对象&quot;&gt;wikipedia.page(“keyword”)(获得页面的对象)&lt;/h2&gt;
+&lt;p&gt;有这个页面的类别、内容、链接、图片链接、摘要、参考
+categories、content、links、imglink、summary、references、url&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;wiki&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Javascript&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pagecontent得到页面内容&quot;&gt;page.content(得到页面内容)&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;content_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、Firefox、Safari、Opera）支持。
+虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、while循环、switch语句、do-while循环等）。
+在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。
+
+
+== 历史 ==
+
+
+=== 肇始於網景 ===
+1993年，伊利諾大學厄巴納-香檳分校的國家超級電腦應用中心（NCSA）發表了NCSA Mosaic，這是最早流行的圖形介面網頁瀏覽器，它在全球資訊網的普及上發揮了重要作用。1994年，一家名為Mosaic Communications的公司在加州山景城成立了，並雇用了許多原來的NCSA Mosaic開發者用來開發Mosaic Netscape，該公司的目標是取代NCSA Mosaic成為世界第一的網頁瀏覽器。第一個版本的網頁瀏覽器Mosaic Netscape 0.9於1994年底發布。在四個月內，已經佔據了四分之三的瀏覽器市場，並成為1990年代網際網路的主要瀏覽器。為避免NCSA的商標所有權問題，該瀏覽器於同年更名為Netscape Navigator，該公司命名為Netscape Communications。網景預見到網路需要變得更動態。公司的創始人馬克·安德森認為HTML需要一種膠水語言，讓網頁設計師和兼職程式設計師可以很容易地使用它來組裝圖片和外掛程式之類的元件，且程式碼可以直接編寫在網頁標記中。
+1995年，網景招募了布兰登·艾克，目標是把Scheme語言嵌入到Netscape Navigator瀏覽器當中。但更早之前，網景已經跟昇阳合作在Netscape Navigator中支援Java，這時網景內部產生激烈的爭論。後來網景決定發明一種與Java搭配使用的輔助腳本語言並且語法上有些類似，這個決策導致排除了採用現有的語言，例如Perl、Python、Tcl或Scheme。為了在其他競爭提案中捍衛JavaScript這個想法，公司需要有一個可以運作的原型。艾克在1995年5月僅花了十天時間就把原型設計出來了。
+最初命名為Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名為LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署時被重新命名為JavaScript，當時网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，因此将其临时改名为JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。
+
+
+=== 微軟採用 ===
+JavaScript推出后在浏览器上大获成功，微软公司在不久后就为Internet Explorer 3浏览器推出了JScript，以与处于市场领导地位的网景产品同台竞争。JScript也是一种JavaScript实现，这两个JavaScript语言版本在浏览器端共存意味着语言标准化的缺失，发展初期，JavaScript的标准并未确定，同期有网景的JavaScript，微软的JScript雙峰並峙。除此之外，微軟也在網頁技術上加入了不少專屬物件，使不少網頁使用非微軟平台及瀏覽器無法正常顯示，導致在瀏覽器大戰期間網頁設計者通常會把「用Netscape可達到最佳效果」或「用IE可達到最佳效果」的標誌放在首頁。隨著Internet Explorer 4的發布，微軟引入了動態HTML的概念，但語言實現和不同專有化的文件物件模型的差異仍然存在，成為網路上普及使用JavaScript的阻礙。
+
+
+=== 标准化 ===
+1996年11月，網景正式向ECMA（欧洲计算机制造商协会）提交語言標準。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成為了ECMAScript最著名的實現之一。除此之外，ActionScript和JScript也都是ECMAScript规范的实现语言。儘管JavaScript作為給非程式人員的腳本語言，而非作為給程式人員的程式語言來推廣和宣傳，但是JavaScript具有非常豐富的特性。
+
+
+== 概論 ==
+一般来说，完整的JavaScript包括以下几个部分：
+
+ECMAScript，描述了该语言的语法和基本对象
+文档对象模型（DOM），描述处理网页内容的方法和接口
+浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口JavaScript的基本特点如下：
+
+是一种解释性脚本语言（代码不进行预编译）。
+主要用来向HTML页面添加交互行为。
+可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。JavaScript常用来完成以下任务：
+
+嵌入动态文本于HTML页面
+对浏览器事件作出响应
+读写HTML元素
+在数据被提交到服务器之前验证数据
+检测访客的浏览器信息
+控制cookies，包括创建和修改等
+
+
+== 特性 ==
+不同於伺服器端腳本語言，例如PHP与ASP，JavaScript主要被作为客户端腳本語言在用戶的瀏覽器上運行，不需要伺服器的支持。所以在早期程式設計師比較青睞於JavaScript以減少對伺服器的負擔，而與此同時也帶來另一個問題：安全性。而隨著伺服器的強壯，雖然現在的程序員更喜歡運行於伺服端的腳本以保證安全，但JavaScript仍然以其跨平台、容易上手等優勢大行其道。同时，有些特殊功能（如AJAX）必须依赖JavaScript在客户端进行支持。隨著引擎如V8和框架如Node.js的發展，及其事件驅動及異步IO等特性，JavaScript逐漸被用來編寫伺服器端程式。且在近几年中，Node.js的出世，让JavaScript也具有了一定的服务器功能，且在某些方面比PHP的效果更为显著。
+
+
+=== 指令式与结构化 ===
+JavaScript从支持许多C语言的结构化编程语法（例如if条件语句、while循环、switch语句、do-while循环等）。但作用域是一个例外：JavaScript只支持使用var关键字来定义变量的函数作用域。ECMAScript加入了let关键字来支持块级作用域，意味着JavaScript现在既支持函数作用域又支持块级作用域。正如C语言一样，JavaScript中的表达式和语句是不同的。与C不同，JavaScript支持自动在语句末添加分号。
+
+
+=== 动态化 ===
+正如大部分脚本语言，类型与值而不是与变量关联。例如x变量可以为数值，随后又可被赋值为字符串。JavaScript提供了包括鸭子类型在内的方法来检测变量类型。
+
+
+==== Eval() ====
+Eval() 函數可以直接執行一個JavaScript函式。例如：
+
+
+== 编程 ==
+JavaScript是一種腳本語言，其原始碼在發往客户端執行之前不需經過編譯，而是將文本格式的字符代碼發送給瀏覽器由瀏覽器解釋執行。直譯語言的弱點是安全性較差，而且在JavaScript中，如果一條執行不了，那麼下面的語言也無法執行。而其解決辦法就是於使用异常处理try{}catch(){}︰
+
+JavaScript被歸類為直譯語言，因為目前主流的引擎都是每次執行時載入程式碼並解譯。V8是將所有程式碼解譯後再開始執行，其他引擎則是逐行解譯（SpiderMonkey會將解譯過的指令暫存，以提高效能，稱為即時編譯），但由於V8的核心部份多數用JavaScript撰寫（而SpiderMonkey是用C++），因此在不同的測試上，兩者效能互有優劣。
+與其相對應的是編譯語言，例如C语言，以編譯語言編寫的程式在執行之前，必須經過編譯，將程式碼編譯為機器碼，再加以執行。
+
+
+== 範例 ==
+以下是一個簡單的JavaScript Hello World︰
+
+或是在瀏覽器的地址栏中使用javascript:，以互動方式表示：
+
+
+== 版本 ==
+
+JavaScript最初開發於1996年，被使用於Netscape Navigator網頁瀏覽器。同年微軟在Internet Explorer發布了一個實作。由於商標問題，這項實作被命名為JScript。1997年，JavaScript已經被網景公司提交給ECMA制定為標準，稱之為ECMAScript，標準編號ECMA-262。目前最新版為ECMA-262 5th Edition。目前ECMA-262 4th Edition正在開發的過程中，與其對應的JavaScript的版本為JavaScript 2.0，目前也正在開發過程中。
+下列表格的資訊基於多個參考來源：
+
+
+== 參見 ==
+
+腳本語言
+DMDScript
+ECMAScript
+JavaScript引擎
+JScript
+AJAX
+JavaScript函式庫
+
+
+== 參考文獻 ==
+
+
+== 外部連結 ==
+關於JavaScript介紹 Mozilla Developer Network上的資源
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pageurl得到页面地址&quot;&gt;page.url(得到页面地址)&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'https://zh.wikipedia.org/wiki/JavaScript'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;pageimages得到页面图片链接&quot;&gt;page.images(得到页面图片链接)&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['https://upload.wikimedia.org/wikipedia/commons/c/cc/8bit-dynamiclist_%28reversed%29.gif',
+ 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Confusion_grey.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/3/34/Javascript_icon.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/d/db/Symbol_list_class.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/d/df/Wikibooks-logo-en-noslogan.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikibooks-logo.svg',
+ 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Zh_conversion_icon_m.svg']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;references&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['http://dx.doi.org/10.1109%2FMC.2012.57',
+ 'http://archive.oreilly.com/pub/a/javascript/2001/04/06/js_history.html',
+ 'http://catalogo.bne.es/uhtbin/authoritybrowse.cgi?action=display&amp;amp;authority_id=XX542465',
+ 'http://catalogue.bnf.fr/ark:/12148/cb12549978q',
+ 'http://data.bnf.fr/ark:/12148/cb12549978q',
+ 'http://developer.apple.com/mac/library/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html',
+ 'http://ejohn.org/blog/versions-of-javascript',
+ 'http://id.loc.gov/authorities/subjects/sh96004880',
+ 'http://javascript.about.com/library/bljver.htm',
+ 'http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/js56jsoriversioninformation.asp',
+ 'http://news.microsoft.com/1996/05/29/microsoft-internet-explorer-3-0-beta-now-available/',
+ 'http://speakingjs.com/es5/ch04.html',
+ 'http://wp.netscape.com/comprod/columns/techvision/innovators_be.html',
+ 'http://www.apps.ietf.org/rfc/rfc4329.html#sec-7.1',
+ 'http://www.computer.org/csdl/mags/co/2012/02/mco2012020007-abs.html',
+ 'http://www.crockford.com/javascript/javascript.html',
+ 'http://www.ecma-international.org/publications/standards/Ecma-262.htm',
+ 'http://www.ecmascript.org/es4/spec/overview.pdf',
+ 'http://www.technologizer.com/2010/09/16/the-unwelcome-return-of-best-viewed-with-internet-explorer/',
+ 'http://www.webmasterworld.com/forum91/68.htm',
+ 'https://d-nb.info/gnd/4420180-1',
+ 'https://developer.mozilla.org/docs/Web/JavaScript',
+ 'https://developer.mozilla.org/en-US/docs/JavaScript/New_in_JavaScript/1.7?redirectlocale=en-US&amp;amp;redirectslug=New_in_JavaScript_1.7#Generators',
+ 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript',
+ 'https://developer.mozilla.org/en-US/docs/Web/JavaScript',
+ 'https://developer.mozilla.org/en/JavaScript/Language_Resources',
+ 'https://web.archive.org/web/20070916144913/http://wp.netscape.com/newsref/pr/newsrelease67.html',
+ 'https://web.archive.org/web/20080208124612/http://wp.netscape.com/comprod/columns/techvision/innovators_be.html',
+ 'https://web.archive.org/web/20140316122853/http://www.apps.ietf.org/rfc/rfc4329.html',
+ 'https://web.archive.org/web/20160719020828/http://archive.oreilly.com/pub/a/javascript/2001/04/06/js_history.html',
+ 'https://www.idref.fr/034781870',
+ 'https://www.webcitation.org/5rBiWD4P6?url=http://www.ecmascript.org/es4/spec/overview.pdf',
+ 'https://www.youtube.com/watch?v=XOmhtfTrRxc&amp;amp;feature=youtu.be&amp;amp;t=2m5s']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;得到页面关键字的相关类别&quot;&gt;得到页面关键字的相关类别&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;categories&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;['ISO标准化编程语言',
+ 'JavaScript',
+ 'Webarchive模板wayback链接',
+ '使用过时图像语法的页面',
+ '函数式编程语言',
+ '包含BNE标识符的维基百科条目',
+ '包含BNF标识符的维基百科条目',
+ '包含GND标识符的维基百科条目',
+ '包含LCCN标识符的维基百科条目',
+ '包含SUDOC标识符的维基百科条目',
+ '含有英語的條目',
+ '有蓝链却未移除内部链接助手模板的页面',
+ '美国发明',
+ '脚本语言',
+ '跨平台軟體']
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;得到页面的摘要&quot;&gt;得到页面的摘要&lt;/h3&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;page_obj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;summary&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、Firefox、Safari、Opera）支持。\n虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、while循环、switch语句、do-while循环等）。\n在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="python" /><category term="wikipedia" /><summary type="html">设置代理和语言 #!/usr/local/bin/python3 # from sys import argv import wikipedia as wiki # from os import environ # import pprint # set proxy and change language environ[&quot;http_proxy&quot;] = &quot;http://127.0.0.1:1087&quot; environ[&quot;https_proxy&quot;] = &quot;https://127.0.0.1:1087&quot; wiki.set_lang(&quot;zh&quot;) wikipedia .search (提供搜索建议) wiki.search(&quot;指南车&quot;,15) # 第2个参数搜索建议数量，默认为10. ['指南车', '高堂隆', '指南针', '张衡', '北京市', '王振鐸', '维基导游', '记里鼓车', '湖北广播电视台', '上海市', '重庆市', '新加坡', '消防員', '俄罗斯', '印度'] wikipedia.summary (获得词条的概述) str=wiki.summary(&quot;象棋&quot;,100) #摘要 print(str) 象棋是中國大陸、台灣、越南、琉球地區所流行的傳統的2人對弈棋類遊戲。与国际象棋及围棋并列世界三大棋类之一。類似的有朝鮮將棋、日本將棋。中國大陸稱「Chess」為「国际象棋」，以此作為區別，又稱中國象棋，主要流行于全球華人、越南人及琉球人社區。是首屆世界智力運動會的正式比賽項目之一。 == 歷史 == === 詞義演變 === 象棋、象戲，在中文有多種含意：從古到今可指六博、彈棋、圍棋、雙陸、象徵的遊戲、中國象棋簡稱、各種象棋類遊戲。 象棋一詞最早出現在戰國，指象牙作的棋子，亦可指象徵猛禽獵魚之戲的六博。因六博棋子有其他材質，也有人認為象棋就是表示六博是象徵的遊戲。《楚辭·招魂》：「菎蔽象棋，有六博些。」王逸注：「以菎蔽作箸，象牙為棋。 wikipedia.page(“keyword”)(获得页面的对象) 有这个页面的类别、内容、链接、图片链接、摘要、参考 categories、content、links、imglink、summary、references、url page_obj = wiki.page(&quot;Javascript&quot;) page.content(得到页面内容) content_obj=page_obj.content print(content_obj) JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、Firefox、Safari、Opera）支持。 虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、while循环、switch语句、do-while循环等）。 在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。 == 历史 == === 肇始於網景 === 1993年，伊利諾大學厄巴納-香檳分校的國家超級電腦應用中心（NCSA）發表了NCSA Mosaic，這是最早流行的圖形介面網頁瀏覽器，它在全球資訊網的普及上發揮了重要作用。1994年，一家名為Mosaic Communications的公司在加州山景城成立了，並雇用了許多原來的NCSA Mosaic開發者用來開發Mosaic Netscape，該公司的目標是取代NCSA Mosaic成為世界第一的網頁瀏覽器。第一個版本的網頁瀏覽器Mosaic Netscape 0.9於1994年底發布。在四個月內，已經佔據了四分之三的瀏覽器市場，並成為1990年代網際網路的主要瀏覽器。為避免NCSA的商標所有權問題，該瀏覽器於同年更名為Netscape Navigator，該公司命名為Netscape Communications。網景預見到網路需要變得更動態。公司的創始人馬克·安德森認為HTML需要一種膠水語言，讓網頁設計師和兼職程式設計師可以很容易地使用它來組裝圖片和外掛程式之類的元件，且程式碼可以直接編寫在網頁標記中。 1995年，網景招募了布兰登·艾克，目標是把Scheme語言嵌入到Netscape Navigator瀏覽器當中。但更早之前，網景已經跟昇阳合作在Netscape Navigator中支援Java，這時網景內部產生激烈的爭論。後來網景決定發明一種與Java搭配使用的輔助腳本語言並且語法上有些類似，這個決策導致排除了採用現有的語言，例如Perl、Python、Tcl或Scheme。為了在其他競爭提案中捍衛JavaScript這個想法，公司需要有一個可以運作的原型。艾克在1995年5月僅花了十天時間就把原型設計出來了。 最初命名為Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名為LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署時被重新命名為JavaScript，當時网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，因此将其临时改名为JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。 === 微軟採用 === JavaScript推出后在浏览器上大获成功，微软公司在不久后就为Internet Explorer 3浏览器推出了JScript，以与处于市场领导地位的网景产品同台竞争。JScript也是一种JavaScript实现，这两个JavaScript语言版本在浏览器端共存意味着语言标准化的缺失，发展初期，JavaScript的标准并未确定，同期有网景的JavaScript，微软的JScript雙峰並峙。除此之外，微軟也在網頁技術上加入了不少專屬物件，使不少網頁使用非微軟平台及瀏覽器無法正常顯示，導致在瀏覽器大戰期間網頁設計者通常會把「用Netscape可達到最佳效果」或「用IE可達到最佳效果」的標誌放在首頁。隨著Internet Explorer 4的發布，微軟引入了動態HTML的概念，但語言實現和不同專有化的文件物件模型的差異仍然存在，成為網路上普及使用JavaScript的阻礙。 === 标准化 === 1996年11月，網景正式向ECMA（欧洲计算机制造商协会）提交語言標準。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成為了ECMAScript最著名的實現之一。除此之外，ActionScript和JScript也都是ECMAScript规范的实现语言。儘管JavaScript作為給非程式人員的腳本語言，而非作為給程式人員的程式語言來推廣和宣傳，但是JavaScript具有非常豐富的特性。 == 概論 == 一般来说，完整的JavaScript包括以下几个部分： ECMAScript，描述了该语言的语法和基本对象 文档对象模型（DOM），描述处理网页内容的方法和接口 浏览器对象模型（BOM），描述与浏览器进行交互的方法和接口JavaScript的基本特点如下： 是一种解释性脚本语言（代码不进行预编译）。 主要用来向HTML页面添加交互行为。 可以直接嵌入HTML页面，但写成单独的js文件有利于结构和行为的分离。JavaScript常用来完成以下任务： 嵌入动态文本于HTML页面 对浏览器事件作出响应 读写HTML元素 在数据被提交到服务器之前验证数据 检测访客的浏览器信息 控制cookies，包括创建和修改等 == 特性 == 不同於伺服器端腳本語言，例如PHP与ASP，JavaScript主要被作为客户端腳本語言在用戶的瀏覽器上運行，不需要伺服器的支持。所以在早期程式設計師比較青睞於JavaScript以減少對伺服器的負擔，而與此同時也帶來另一個問題：安全性。而隨著伺服器的強壯，雖然現在的程序員更喜歡運行於伺服端的腳本以保證安全，但JavaScript仍然以其跨平台、容易上手等優勢大行其道。同时，有些特殊功能（如AJAX）必须依赖JavaScript在客户端进行支持。隨著引擎如V8和框架如Node.js的發展，及其事件驅動及異步IO等特性，JavaScript逐漸被用來編寫伺服器端程式。且在近几年中，Node.js的出世，让JavaScript也具有了一定的服务器功能，且在某些方面比PHP的效果更为显著。 === 指令式与结构化 === JavaScript从支持许多C语言的结构化编程语法（例如if条件语句、while循环、switch语句、do-while循环等）。但作用域是一个例外：JavaScript只支持使用var关键字来定义变量的函数作用域。ECMAScript加入了let关键字来支持块级作用域，意味着JavaScript现在既支持函数作用域又支持块级作用域。正如C语言一样，JavaScript中的表达式和语句是不同的。与C不同，JavaScript支持自动在语句末添加分号。 === 动态化 === 正如大部分脚本语言，类型与值而不是与变量关联。例如x变量可以为数值，随后又可被赋值为字符串。JavaScript提供了包括鸭子类型在内的方法来检测变量类型。 ==== Eval() ==== Eval() 函數可以直接執行一個JavaScript函式。例如： == 编程 == JavaScript是一種腳本語言，其原始碼在發往客户端執行之前不需經過編譯，而是將文本格式的字符代碼發送給瀏覽器由瀏覽器解釋執行。直譯語言的弱點是安全性較差，而且在JavaScript中，如果一條執行不了，那麼下面的語言也無法執行。而其解決辦法就是於使用异常处理try{}catch(){}︰ JavaScript被歸類為直譯語言，因為目前主流的引擎都是每次執行時載入程式碼並解譯。V8是將所有程式碼解譯後再開始執行，其他引擎則是逐行解譯（SpiderMonkey會將解譯過的指令暫存，以提高效能，稱為即時編譯），但由於V8的核心部份多數用JavaScript撰寫（而SpiderMonkey是用C++），因此在不同的測試上，兩者效能互有優劣。 與其相對應的是編譯語言，例如C语言，以編譯語言編寫的程式在執行之前，必須經過編譯，將程式碼編譯為機器碼，再加以執行。 == 範例 == 以下是一個簡單的JavaScript Hello World︰ 或是在瀏覽器的地址栏中使用javascript:，以互動方式表示： == 版本 == JavaScript最初開發於1996年，被使用於Netscape Navigator網頁瀏覽器。同年微軟在Internet Explorer發布了一個實作。由於商標問題，這項實作被命名為JScript。1997年，JavaScript已經被網景公司提交給ECMA制定為標準，稱之為ECMAScript，標準編號ECMA-262。目前最新版為ECMA-262 5th Edition。目前ECMA-262 4th Edition正在開發的過程中，與其對應的JavaScript的版本為JavaScript 2.0，目前也正在開發過程中。 下列表格的資訊基於多個參考來源： == 參見 == 腳本語言 DMDScript ECMAScript JavaScript引擎 JScript AJAX JavaScript函式庫 == 參考文獻 == == 外部連結 == 關於JavaScript介紹 Mozilla Developer Network上的資源 page.url(得到页面地址) page_obj.url 'https://zh.wikipedia.org/wiki/JavaScript' page.images(得到页面图片链接) page_obj.images ['https://upload.wikimedia.org/wikipedia/commons/c/cc/8bit-dynamiclist_%28reversed%29.gif', 'https://upload.wikimedia.org/wikipedia/commons/f/fb/Confusion_grey.svg', 'https://upload.wikimedia.org/wikipedia/commons/3/34/Javascript_icon.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/db/Symbol_list_class.svg', 'https://upload.wikimedia.org/wikipedia/commons/d/df/Wikibooks-logo-en-noslogan.svg', 'https://upload.wikimedia.org/wikipedia/commons/f/fa/Wikibooks-logo.svg', 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Zh_conversion_icon_m.svg'] page_obj.references ['http://dx.doi.org/10.1109%2FMC.2012.57', 'http://archive.oreilly.com/pub/a/javascript/2001/04/06/js_history.html', 'http://catalogo.bne.es/uhtbin/authoritybrowse.cgi?action=display&amp;amp;authority_id=XX542465', 'http://catalogue.bnf.fr/ark:/12148/cb12549978q', 'http://data.bnf.fr/ark:/12148/cb12549978q', 'http://developer.apple.com/mac/library/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html', 'http://ejohn.org/blog/versions-of-javascript', 'http://id.loc.gov/authorities/subjects/sh96004880', 'http://javascript.about.com/library/bljver.htm', 'http://msdn.microsoft.com/library/default.asp?url=/library/en-us/script56/html/js56jsoriversioninformation.asp', 'http://news.microsoft.com/1996/05/29/microsoft-internet-explorer-3-0-beta-now-available/', 'http://speakingjs.com/es5/ch04.html', 'http://wp.netscape.com/comprod/columns/techvision/innovators_be.html', 'http://www.apps.ietf.org/rfc/rfc4329.html#sec-7.1', 'http://www.computer.org/csdl/mags/co/2012/02/mco2012020007-abs.html', 'http://www.crockford.com/javascript/javascript.html', 'http://www.ecma-international.org/publications/standards/Ecma-262.htm', 'http://www.ecmascript.org/es4/spec/overview.pdf', 'http://www.technologizer.com/2010/09/16/the-unwelcome-return-of-best-viewed-with-internet-explorer/', 'http://www.webmasterworld.com/forum91/68.htm', 'https://d-nb.info/gnd/4420180-1', 'https://developer.mozilla.org/docs/Web/JavaScript', 'https://developer.mozilla.org/en-US/docs/JavaScript/New_in_JavaScript/1.7?redirectlocale=en-US&amp;amp;redirectslug=New_in_JavaScript_1.7#Generators', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript', 'https://developer.mozilla.org/en-US/docs/Web/JavaScript', 'https://developer.mozilla.org/en/JavaScript/Language_Resources', 'https://web.archive.org/web/20070916144913/http://wp.netscape.com/newsref/pr/newsrelease67.html', 'https://web.archive.org/web/20080208124612/http://wp.netscape.com/comprod/columns/techvision/innovators_be.html', 'https://web.archive.org/web/20140316122853/http://www.apps.ietf.org/rfc/rfc4329.html', 'https://web.archive.org/web/20160719020828/http://archive.oreilly.com/pub/a/javascript/2001/04/06/js_history.html', 'https://www.idref.fr/034781870', 'https://www.webcitation.org/5rBiWD4P6?url=http://www.ecmascript.org/es4/spec/overview.pdf', 'https://www.youtube.com/watch?v=XOmhtfTrRxc&amp;amp;feature=youtu.be&amp;amp;t=2m5s'] 得到页面关键字的相关类别 page_obj.categories ['ISO标准化编程语言', 'JavaScript', 'Webarchive模板wayback链接', '使用过时图像语法的页面', '函数式编程语言', '包含BNE标识符的维基百科条目', '包含BNF标识符的维基百科条目', '包含GND标识符的维基百科条目', '包含LCCN标识符的维基百科条目', '包含SUDOC标识符的维基百科条目', '含有英語的條目', '有蓝链却未移除内部链接助手模板的页面', '美国发明', '脚本语言', '跨平台軟體'] 得到页面的摘要 page_obj.summary 'JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、Firefox、Safari、Opera）支持。\n虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、while循环、switch语句、do-while循环等）。\n在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。'</summary></entry><entry><title type="html">各种形式的平均数</title><link href="https://dygck.github.io/mean" rel="alternate" type="text/html" title="各种形式的平均数" /><published>2018-10-08T11:57:30+08:00</published><updated>2018-10-08T11:57:30+08:00</updated><id>https://dygck.github.io/mean</id><content type="html" xml:base="https://dygck.github.io/mean">&lt;p&gt;关于各种平均数的描述!&lt;/p&gt;
 
 &lt;h2 id=&quot;简单平均数mean&quot;&gt;简单平均数(mean)&lt;/h2&gt;
 &lt;p&gt;求和除个数&lt;/p&gt;
@@ -1543,39 +1794,4 @@ Music
 &lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.6243453636632417&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 再次生成一个新实例，依然保存着状态。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="Statistics" /><summary type="html">使用python和matlab生成重复的随机数,关键在于种子生成器. 使用rng函数 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 &amp;gt;&amp;gt; rand ans = 0.7203 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 % 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可. % 同时要求设定了种子之后,只有接下来的一次有效 使用RandomState函数 In [1]: import numpy as np In [2]: s1=np.random.RandomState(1) In [3]: s1.randn(5) Out[3]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) In [4]: s2=np.random.RandomState(1) In [5]: s2.randn(5) Out[5]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) # 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。 In [6]: s2.randn() Out[6]: -2.3015386968802827 # 可以看出来只能使用一次，第二次就不一样了 In [7]: s3=np.random.RandomState(1) In [8]: s3.randn() Out[8]: 1.6243453636632417 # 再次生成一个新实例，依然保存着状态。</summary></entry><entry><title type="html">链接</title><link href="https://dygck.github.io/softlink-and-hardlink" rel="alternate" type="text/html" title="链接" /><published>2018-09-03T00:00:00+08:00</published><updated>2018-09-03T00:00:00+08:00</updated><id>https://dygck.github.io/softlink-and-hardlink</id><content type="html" xml:base="https://dygck.github.io/softlink-and-hardlink">&lt;p&gt;Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接)&lt;/p&gt;
-
-&lt;h2 id=&quot;索引节点&quot;&gt;索引节点&lt;/h2&gt;
-&lt;p&gt;索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。&lt;/p&gt;
-&lt;h2 id=&quot;软链接&quot;&gt;软链接&lt;/h2&gt;
-&lt;p&gt;软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; 原始文件 建立的链接地址 （应该是要使用绝对路径）
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。&lt;/p&gt;
-&lt;h2 id=&quot;硬链接&quot;&gt;硬链接&lt;/h2&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln 原始文件地址 建立的链接地址
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容，
-其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。
-好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址,
-硬链接就是原文件的别名.通过硬链接改变文件内容，因为改变的是指向同一个内存地址的内容，
-硬链接和原文件会同时都发生改变。&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 数组是引用类型，b是a的别名，改变a的内容同时b也会发生变化，指向的是同一个内存地址中的数据。硬链接也是一个道理。&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#[2, 2, 3, 4]&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;#[2, 2, 3, 4]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//[2, 2, 3, 4]&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;//[2, 2, 3, 4]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="shell" /><category term="linux" /><summary type="html">Linux系统,创建快捷方式的2种方法的理解(软链接与硬链接) 索引节点 索引节点类似一个文件的id号，索引节点是与文件物理地址挂钩的钥匙。 软链接 软链接指向文件名，文件名通过索引节点指向物理地址。删除软链接不删除文件，只删除了与文件名的链接。 ln -s 原始文件 建立的链接地址 （应该是要使用绝对路径） 软链接可以跨文件系统，可以建立目录或d者文件的软链接。软链接的索引接点与原文件或目录不一样。 硬链接 ln 原始文件地址 建立的链接地址 硬链接可以说是原文件的别名，它们都指向同一个索引节点，改变其中一个文件内容， 其他文件内容也会同时改变。硬链接是一种共享索引接点的普通文件。 好比，编程语言中的引用类型，他们指向一个索引接点，类似于指向同一个内存地址, 硬链接就是原文件的别名.通过硬链接改变文件内容，因为改变的是指向同一个内存地址的内容， 硬链接和原文件会同时都发生改变。 # 数组是引用类型，b是a的别名，改变a的内容同时b也会发生变化，指向的是同一个内存地址中的数据。硬链接也是一个道理。 a=[1,2,3,4] b=a a[0]=2 print(a) print(b) #[2, 2, 3, 4] #[2, 2, 3, 4] var a=[1,2,3,4] var b=a a[0]=2 console.log(a) console.log(b) //[2, 2, 3, 4] //[2, 2, 3, 4]</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="Statistics" /><summary type="html">使用python和matlab生成重复的随机数,关键在于种子生成器. 使用rng函数 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 &amp;gt;&amp;gt; rand ans = 0.7203 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 % 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可. % 同时要求设定了种子之后,只有接下来的一次有效 使用RandomState函数 In [1]: import numpy as np In [2]: s1=np.random.RandomState(1) In [3]: s1.randn(5) Out[3]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) In [4]: s2=np.random.RandomState(1) In [5]: s2.randn(5) Out[5]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) # 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。 In [6]: s2.randn() Out[6]: -2.3015386968802827 # 可以看出来只能使用一次，第二次就不一样了 In [7]: s3=np.random.RandomState(1) In [8]: s3.randn() Out[8]: 1.6243453636632417 # 再次生成一个新实例，依然保存着状态。</summary></entry></feed>
