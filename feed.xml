@@ -1,5 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://dygck.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dygck.github.io/" rel="alternate" type="text/html" hreflang="zh" /><updated>2018-10-11T21:45:04+08:00</updated><id>https://dygck.github.io/</id><title type="html">在风陵渡口学coding!</title><subtitle>别点我!
-</subtitle><author><name>Jeff</name><email>fj1945@live.cn</email></author><entry><title type="html">Python维基百科查询库使用</title><link href="https://dygck.github.io/wikipedia" rel="alternate" type="text/html" title="Python维基百科查询库使用" /><published>2018-10-11T21:06:40+08:00</published><updated>2018-10-11T21:06:40+08:00</updated><id>https://dygck.github.io/wikipedia</id><content type="html" xml:base="https://dygck.github.io/wikipedia">&lt;h2 id=&quot;设置代理和语言&quot;&gt;设置代理和语言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh"><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="https://dygck.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dygck.github.io/" rel="alternate" type="text/html" hreflang="zh" /><updated>2018-10-12T22:42:24+08:00</updated><id>https://dygck.github.io/</id><title type="html">在风陵渡口学coding!</title><subtitle>别点我!
+</subtitle><author><name>Jeff</name><email>fj1945@live.cn</email></author><entry><title type="html">Emmet的主要语法功能简记</title><link href="https://dygck.github.io/emmet-notes" rel="alternate" type="text/html" title="Emmet的主要语法功能简记" /><published>2018-10-12T22:24:31+08:00</published><updated>2018-10-12T22:24:31+08:00</updated><id>https://dygck.github.io/emmet-notes</id><content type="html" xml:base="https://dygck.github.io/emmet-notes">&lt;p&gt;下面是一些emmet速写语法规则简要描述:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;+&lt;/code&gt; 表示标签并列&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;gt;&lt;/code&gt; 指向子级&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt; 跳转到父级 ^^父级在上一层,以此类推 ,最高可以和根平级,但是不能超过.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;()&lt;/code&gt; 打组,易实现跨跃级别结构&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; 实现数递增 1开始, &lt;code class=&quot;highlighter-rouge&quot;&gt;$$&lt;/code&gt; 从01开始 以此类推&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$@num1*num2&lt;/code&gt;
+  从num1开始,到num1+num2-1结束.@的作用改变$的基准数,$@3*5 就是3,4,5,6,7&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$@-*num&lt;/code&gt; 从num开始递减,减到1&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$@-num1*num2&lt;/code&gt;从num1+num2-1开始递减到num1&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[属性=属性值]&lt;/code&gt; 给标签增加属性&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;{innertext}&lt;/code&gt; 给标签增加文本&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; or [id=value]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; or [class=value]&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.a.b.c&lt;/code&gt; 带有空格的类&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    div[CLASS=&quot;fa fb fi&quot;] &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;div.fa.fb.fi
+    div[CLASS=&quot;fa fb fi&quot;] &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;div.fa.fb.fi
+    div[class=&quot;fa fb fi&quot;] &lt;span class=&quot;nt&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;div.fa.fb.fi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;标签推导&lt;/code&gt; 通过常见规则自动添加必要内容&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ol&amp;gt;.item$*5
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item3&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item4&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;item5&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ol&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="html" /><category term="技巧" /><summary type="html">下面是一些emmet速写语法规则简要描述: + 表示标签并列 &amp;gt; 指向子级 ^ 跳转到父级 ^^父级在上一层,以此类推 ,最高可以和根平级,但是不能超过. () 打组,易实现跨跃级别结构 $ 实现数递增 1开始, $$ 从01开始 以此类推 $@num1*num2 从num1开始,到num1+num2-1结束.@的作用改变$的基准数,$@3*5 就是3,4,5,6,7 $@-*num 从num开始递减,减到1 $@-num1*num2从num1+num2-1开始递减到num1 [属性=属性值] 给标签增加属性 {innertext} 给标签增加文本 # or [id=value] . or [class=value] .a.b.c 带有空格的类 div[CLASS=&quot;fa fb fi&quot;] &amp;lt;=&amp;gt;div.fa.fb.fi div[CLASS=&quot;fa fb fi&quot;] &amp;lt;=&amp;gt;div.fa.fb.fi div[class=&quot;fa fb fi&quot;] &amp;lt;=&amp;gt;div.fa.fb.fi 标签推导 通过常见规则自动添加必要内容 ol&amp;gt;.item$*5 &amp;lt;ol&amp;gt; &amp;lt;li class=&quot;item1&quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&quot;item2&quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&quot;item3&quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&quot;item4&quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;li class=&quot;item5&quot;&amp;gt;&amp;lt;/li&amp;gt; &amp;lt;/ol&amp;gt;</summary></entry><entry><title type="html">Python维基百科查询库使用</title><link href="https://dygck.github.io/wikipedia" rel="alternate" type="text/html" title="Python维基百科查询库使用" /><published>2018-10-11T21:06:40+08:00</published><updated>2018-10-11T21:06:40+08:00</updated><id>https://dygck.github.io/wikipedia</id><content type="html" xml:base="https://dygck.github.io/wikipedia">&lt;h2 id=&quot;设置代理和语言&quot;&gt;设置代理和语言&lt;/h2&gt;
 
 &lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/usr/local/bin/python3&lt;/span&gt;
 &lt;span class=&quot;c&quot;&gt;# from sys import argv&lt;/span&gt;
@@ -1748,50 +1809,4 @@ Downloads
 Library
 Movies
 Music
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="shell" /><category term="linux" /><summary type="html">Linux shell中的常见的操作符. 分号 分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句. 短路与 event A &amp;amp;&amp;amp; event B #只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序. #只有A成功了,B才可以运行.A不成功就停止运行. 短路或 envent A　|| envent B #事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。 #B应该属于一个备选方案. 命令替换符 将一条命令的输出,作为参数或者选项插入另一条命令 cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令. 管道操作符 将管道左边命令的标准输出流(stdout)重定向(redirection)到管道右边的命令, 作为右边命令的标准输入流(stdin). ls |less # ls列出当前目录下的文件夹和文件,less将输入流以一页一页方式显示, # less将ls的输出作为输入,进行了一番操作。 重定向符+重写 通常是将一个命令重定向到文件,这个&amp;gt;符号形象的将左边的stdout内容指向右边的容器, 这里应该是文件.如果这个文件已经存在,将会覆盖原文件的内容. man type&amp;gt;type.txt # man命令的内容保存到文件type.txt中 set -o noclobber # 意思是使用&quot;&amp;gt;&quot;这个符号,不允许覆盖已存在的文件,只能使用&quot;&amp;gt;|&quot; set +o noclobber # 关闭不允许覆盖功能,可以覆盖. 重定向符+追加 与&amp;gt;这个的区别就是将内容追加到文件中,而非覆盖.&amp;gt;&amp;gt;的功能完全可以完成&amp;gt;的功能 ls &amp;gt;&amp;gt; ls.txt 如果`ls.txt`文件存在,则将`ls`命令的输出结果添加到`ls.txt`文本中; 如果不存在,则功能与`&amp;gt;`这个一样,创建`ls.txt`文件,并传输内容. tee tee操作可以把标准输出重定向到文件的同时,也可以传输到标准输入. ls ~|tee list.txt|less $ ls ~|tee list.txt|less #页面查看,同时得到文件list.txt Applications Desktop Documents Downloads Library Movies Music</summary></entry><entry><title type="html">生成重复的随机数</title><link href="https://dygck.github.io/same-random-number-generate" rel="alternate" type="text/html" title="生成重复的随机数" /><published>2018-09-23T00:00:00+08:00</published><updated>2018-09-23T00:00:00+08:00</updated><id>https://dygck.github.io/same-random-number-generate</id><content type="html" xml:base="https://dygck.github.io/same-random-number-generate">&lt;p&gt;使用python和matlab生成重复的随机数,关键在于种子生成器.&lt;/p&gt;
-
-&lt;h2 id=&quot;使用rng函数&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;rng&lt;/code&gt;函数&lt;/h2&gt;
-
-&lt;div class=&quot;language-matlab highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-
-	&lt;span class=&quot;mf&quot;&gt;0.4170&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-
-	&lt;span class=&quot;mf&quot;&gt;0.7203&lt;/span&gt;
-
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rng&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt;
-
-&lt;span class=&quot;nb&quot;&gt;ans&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-
-	&lt;span class=&quot;mf&quot;&gt;0.4170&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;% 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可.&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;% 同时要求设定了种子之后,只有接下来的一次有效&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;h2 id=&quot;使用randomstate函数&quot;&gt;使用&lt;code class=&quot;highlighter-rouge&quot;&gt;RandomState&lt;/code&gt;函数&lt;/h2&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.62434536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.61175641&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.52817175&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.07296862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;0.86540763&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.62434536&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.61175641&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.52817175&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.07296862&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;  &lt;span class=&quot;mf&quot;&gt;0.86540763&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.3015386968802827&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 可以看出来只能使用一次，第二次就不一样了&lt;/span&gt;
-
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;random&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomState&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;In&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;randn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Out&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.6243453636632417&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# 再次生成一个新实例，依然保存着状态。&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="Statistics" /><summary type="html">使用python和matlab生成重复的随机数,关键在于种子生成器. 使用rng函数 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 &amp;gt;&amp;gt; rand ans = 0.7203 &amp;gt;&amp;gt; rng(1) &amp;gt;&amp;gt; rand ans = 0.4170 % 当指定了rng种子,则下一次执行随机函数的值是固定的,要想获得同样的随机数,固定种子即可. % 同时要求设定了种子之后,只有接下来的一次有效 使用RandomState函数 In [1]: import numpy as np In [2]: s1=np.random.RandomState(1) In [3]: s1.randn(5) Out[3]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) In [4]: s2=np.random.RandomState(1) In [5]: s2.randn(5) Out[5]: array([ 1.62434536, -0.61175641, -0.52817175, -1.07296862, 0.86540763]) # 这里的RandomState也是一个保存种子生成器的实例，当使用同样的种子生成的随机数也是一样的。 In [6]: s2.randn() Out[6]: -2.3015386968802827 # 可以看出来只能使用一次，第二次就不一样了 In [7]: s3=np.random.RandomState(1) In [8]: s3.randn() Out[8]: 1.6243453636632417 # 再次生成一个新实例，依然保存着状态。</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Jeff</name><email>fj1945@live.cn</email></author><category term="shell" /><category term="linux" /><summary type="html">Linux shell中的常见的操作符. 分号 分号断句,一行一行执行,即使之前的运行失败了,也会尝试运行之后的语句. 短路与 event A &amp;amp;&amp;amp; event B #只有当事件A返回成功的状态码,事件B才会执行,当事件A失败,则发生短路,终止程序. #只有A成功了,B才可以运行.A不成功就停止运行. 短路或 envent A　|| envent B #事件A运行成功,结束执行,不看后面的语句.事件A运行失败,尝试运行B.如果A没有成功,就选择B。 #B应该属于一个备选方案. 命令替换符 将一条命令的输出,作为参数或者选项插入另一条命令 cd $(pfd) #去到当前打开的Finder窗口的路径.首先PFD得到路径,并作为cd命令的实参,运行cd命令. 管道操作符 将管道左边命令的标准输出流(stdout)重定向(redirection)到管道右边的命令, 作为右边命令的标准输入流(stdin). ls |less # ls列出当前目录下的文件夹和文件,less将输入流以一页一页方式显示, # less将ls的输出作为输入,进行了一番操作。 重定向符+重写 通常是将一个命令重定向到文件,这个&amp;gt;符号形象的将左边的stdout内容指向右边的容器, 这里应该是文件.如果这个文件已经存在,将会覆盖原文件的内容. man type&amp;gt;type.txt # man命令的内容保存到文件type.txt中 set -o noclobber # 意思是使用&quot;&amp;gt;&quot;这个符号,不允许覆盖已存在的文件,只能使用&quot;&amp;gt;|&quot; set +o noclobber # 关闭不允许覆盖功能,可以覆盖. 重定向符+追加 与&amp;gt;这个的区别就是将内容追加到文件中,而非覆盖.&amp;gt;&amp;gt;的功能完全可以完成&amp;gt;的功能 ls &amp;gt;&amp;gt; ls.txt 如果`ls.txt`文件存在,则将`ls`命令的输出结果添加到`ls.txt`文本中; 如果不存在,则功能与`&amp;gt;`这个一样,创建`ls.txt`文件,并传输内容. tee tee操作可以把标准输出重定向到文件的同时,也可以传输到标准输入. ls ~|tee list.txt|less $ ls ~|tee list.txt|less #页面查看,同时得到文件list.txt Applications Desktop Documents Downloads Library Movies Music</summary></entry></feed>

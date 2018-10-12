@@ -354,6 +354,28 @@
               <div class="col-aside js-col-aside"></div>
 
               <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>主页</h1></header><meta itemprop="headline" content="主页"><div class="article__info clearfix"><ul class="right-col menu"></ul></div><meta itemprop="author" content="Jeff"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><h2 itemprop="headline" class="item__header"><a href="/PowerShell-Object-commands">Microsoft.PowerShell.Utility模块介绍</a></h2></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">这个模块包括了许多PowerShell的基础管理命令.意味着该模块是非常通用的
+
+Measure-Object
+Description
+Measure-Object 可以用来计算一个对象的数值型属性的值，主要有 count max min sum
+mean.对于一个文件可以计算，文件的行数，单词数，字符数。(lines、words、characters)
+Alias
+measure
+Examples
+
+
+  统计某个文件的行数、字符数、文件数。
+    # 查看win10系统hosts文件夹的行号，单词数，字符数。
+$hosts ; Get-Content $hosts
+Get-Content $hosts | Measure-Object -Line -Word -Character...</div><p><a href="/PowerShell-Object-commands">阅读更多</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=PowerShell">PowerShell</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 09月28日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-28T23:56:28+08:00">
+    <meta itemprop="keywords" content="PowerShell"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><h2 itemprop="headline" class="item__header"><a href="/operators">操作符</a></h2></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">Linux shell中的常见的操作符.
 
@@ -454,7 +476,7 @@ ln 原始文件地址 建立的链接地址
             </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-09-03T00:00:00+08:00">
     <meta itemprop="keywords" content="shell,linux"></div>
       </article></div>
-</div><div class="layout--home"><div class="pagination"><p>共计 11 篇文章，2 页。</p>
+</div><div class="layout--home"><div class="pagination"><p>共计 12 篇文章，2 页。</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap"><li><a class="button button--secondary button--circle" href="/">
             <i class="fas fa-angle-left"></i>
