@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="zh">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>魔法函数测试 - 在风陵渡口学coding!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>假设检验笔记 - 在风陵渡口学coding!</title>
 
-<meta name="description" content="单元格魔法，统计代码执行时间！%%timeformat shorts=0;for i=1:1000s=s+i;enddisp(s)      500500Time: 0.014966011047363281 seconds.列出可用魔法%lsmagicAvailable line magics:%activity...">
-<link rel="canonical" href="https://dygck.github.io/magicline"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
+<meta name="description" content="关于单侧检验的原假设和备择假设的设置 如果是还在开发的项目,可能有好的优化,把好的优化结果放在备择假设.原假设就是以前不好的状态. 比如,某公司测试开发新的cpu,预计性能提高20%,原假设 $H_0$ 如果是已经完成的项目,表示已经有一定的成功的,就把好的结果作为原假设.">
+<link rel="canonical" href="https://dygck.github.io/hypothesis-test-note"><link rel="alternate" type="application/rss+xml" title="在风陵渡口学coding!" href="/feed.xml">
 <!-- begin favicon -->
 <link rel="apple-touch-icon" sizes="120x120" href="/assets/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
@@ -352,165 +352,32 @@
 
               <div class="col-aside js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>魔法函数测试</h1></header><span class="split-space">&nbsp;</span>
+              <div class="col-main cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>假设检验笔记</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="在 Github 上修改"
-            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-10-17-magicline.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="魔法函数测试"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/dygck/dygck.github.io/tree/master/_posts/2018-11-25-hypothesis-test-note.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="假设检验笔记"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python">python</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=matlab">matlab</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=shell">shell</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=javascript">javascript</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=jupyter">jupyter</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 10月07日</span>
-            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-10-07T23:59:58+08:00">
-    <meta itemprop="keywords" content="python,matlab,shell,javascript,jupyter"><div class="js-article-content"><div class="layout--article">
+                href="/archive.html?tag=%E7%BB%9F%E8%AE%A1%E5%AD%A6">统计学</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>2018年 11月25日</span>
+            </li></ul></div><meta itemprop="author" content="Jeff"/><meta itemprop="datePublished" content="2018-11-25T19:16:28+08:00">
+    <meta itemprop="keywords" content="统计学"><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><h2 id="单元格魔法统计代码执行时间">单元格魔法，统计代码执行时间！</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%time</span>
-<span class="nb">format</span> <span class="n">short</span>
-<span class="n">s</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span> <span class="nb">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">1000</span>
-<span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="o">+</span><span class="nb">i</span><span class="p">;</span>
-<span class="k">end</span>
-<span class="nb">disp</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      500500
-
-Time: 0.014966011047363281 seconds.
-</code></pre></div></div>
-
-<h2 id="列出可用魔法">列出可用魔法</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%lsmagic</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Available line magics:
-%activity  %cd  %connect_info  %conversation  %dot  %download  %edit  %get  %help  %html  %include  %install  %install_magic  %javascript  %jigsaw  %kernel  %kx  %latex  %load  %ls  %lsmagic  %macro  %magic  %matplotlib  %parallel  %plot  %pmap  %px  %python  %reload_magics  %restart  %run  %scheme  %set  %shell
-
-Available cell magics:
-%%activity  %%brain  %%conversation  %%debug  %%dot  %%file  %%help  %%html  %%javascript  %%kx  %%latex  %%macro  %%pipe  %%processing  %%px  %%python  %%scheme  %%shell  %%show  %%time  %%tutor
-</code></pre></div></div>
-
-<h2 id="执行shell脚本">执行shell脚本。</h2>
-
-<ol>
-  <li>单行shell脚本 （%shell or !）</li>
+  <div class="article__content" itemprop="articleBody"><ol>
+  <li>关于单侧检验的原假设和备择假设的设置
+ 如果是还在开发的项目,可能有好的优化,把好的优化结果放在备择假设.原假设就是以前不好的状态.
+ 比如,某公司测试开发新的cpu,预计性能提高20%,原假设 $H_0$
+ 如果是已经完成的项目,表示已经有一定的成功的,就把好的结果作为原假设.</li>
 </ol>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%shell pwd</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/fujie/Desktop
-</code></pre></div></div>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">!</span><span class="nb">pwd</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/fujie/Desktop
-</code></pre></div></div>
-
-<ol>
-  <li>单元shell脚本 (%%shell or !!)</li>
-</ol>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%shell</span>
-<span class="nb">diff</span> <span class="n">req</span> <span class="n">pip</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>56a57
-&gt; pip
-85a87
-&gt; setuptools
-</code></pre></div></div>
-
-<h2 id="执行javascript">执行javascript</h2>
-
-<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="nx">javascript</span>
-<span class="kd">var</span> <span class="nx">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="nx">alert</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IPython.core.display.Javascript object&gt;
-</code></pre></div></div>
-
-<h2 id="运行python">运行python</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%python</span>
-<span class="nb">import</span> <span class="n">os</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">uname</span><span class="p">())</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>posix.uname_result(sysname='Darwin', nodename='Mac.local', release='18.0.0', version='Darwin Kernel Version 18.0.0: Wed Aug 22 20:13:40 PDT 2018; root:xnu-4903.201.2~1/RELEASE_X86_64', machine='x86_64')
-</code></pre></div></div>
-
-<h2 id="下载文件">下载文件</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%download  "https://dygck.github.io/assets/images/sublime_keybind.gif"  -f  ~/Desktop/a.gif</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0;31m&lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed (_ssl.c:841)&gt;
-[0m
-</code></pre></div></div>
-
-<h2 id="编辑文件">编辑文件</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%edit pip</span>
-</code></pre></div></div>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%%file pip</span>
-<span class="n">appnope</span>
-<span class="n">asn1crypto</span>
-<span class="n">astroid</span>
-<span class="n">attrs</span>
-<span class="n">Automat</span>
-<span class="n">autopep8</span>
-<span class="n">backcall</span>
-<span class="n">beautifulsoup4</span>
-<span class="n">bleach</span>
-<span class="n">bs4</span>
-<span class="n">certifi</span>
-<span class="n">cffi</span>
-<span class="n">chardet</span>
-<span class="n">constantly</span>
-<span class="n">cryptography</span>
-
-
-
-
-
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Created file '/Users/fujie/Desktop/pip'.
-</code></pre></div></div>
-
-<h2 id="使用html">使用html</h2>
-
-<div class="language-matlab highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">%html  &lt;p style="color:#121276"&gt;This is underlined!&lt;/p&gt;</span>
-</code></pre></div></div>
-
-<p style="color:#121276">This is underlined!</p>
-
 </div>
 
-  <footer class="article__footer"><meta itemprop="dateModified" content="2018-10-07T23:59:58+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
+  <footer class="article__footer"><meta itemprop="dateModified" content="2018-11-25T19:16:28+08:00"><!-- this will show at every article content's bottom --><div class="article__license"><div class="license">
     <p>本文遵守 <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> 许可协议。
       <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
         <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
       </a>
     </p>
-  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/magic-reference">Line Magics</a></div><div class="next"><span>下篇</span><a href="/mean">各种形式的平均数</a></div></div></div>
+  </div></div></footer><div class="article__section-navigator clearfix"><div class="previous"><span>上篇</span><a href="/emmet-notes">Emmet的主要语法功能简记</a></div><div class="next"><span>下篇</span><a href="/vim-note">vim学习笔记</a></div></div></div>
 
 <script>(function() {
   var SOURCES = window.TEXT_VARIABLES.sources;
@@ -1063,7 +930,47 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 
     window.pageAsideAffix = affix;
   });
-})();</script>
+})();</script><script type="text/x-mathjax-config">
+    let isMathjaxConfig = false; // 防止重复调用Config，造成性能损耗
+
+const initMathjaxConfig = () => {
+  if (!window.MathJax) {
+    return;
+  }
+  window.MathJax.Hub.Config({
+    showProcessingMessages: false, //关闭js加载过程信息
+    messageStyle: "none", //不显示信息
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [["$", "$"], ["\\(", "\\)"]], //行内公式选择符
+      displayMath: [["$$", "$$"], ["\\[", "\\]"]], //段内公式选择符
+      skipTags: ["script", "noscript", "style", "textarea", "pre", "code", "a"] //避开某些标签
+    },
+    "HTML-CSS": {
+      availableFonts: ["STIX", "TeX"], //可选字体
+      showMathMenu: false //关闭右击菜单显示
+    }
+  });
+  isMathjaxConfig = true; //
+};
+if (isMathjaxConfig === false) { // 如果：没有配置MathJax
+  initMathjaxConfig();
+}
+
+// 如果，不传入第三个参数，则渲染整个document
+// 因为使用的Vuejs，所以指明#app，以提高速度
+window.MathJax.Hub.Queue(["Typeset", MathJax.Hub, document.getElementById('app')])
+</script>
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+<style>
+.mjx-chtml {
+  outline: 0;
+}
+.MJXc-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+</style>
     </div>
     <script>(function () {
   var $root = document.getElementsByClassName('root')[0];
